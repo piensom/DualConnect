@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Dual Connect</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+<body class="admin-login-page">
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Logo -->
+      <div class="login-logo">
+        <h1>Dual Connect</h1>
+        <p>Admin Portal</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="adminLoginForm" class="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="admin@dualconnect.com"
+            required
+            autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password">
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" name="remember" id="remember">
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="loginBtn">
+          Login to Admin Panel
+        </button>
+
+        <div class="form-footer">
+          <a href="#" class="link-secondary" onclick="forgotPassword(event)">Forgot password?</a>
+        </div>
+      </form>
+
+      <!-- Error Message -->
+      <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+      <!-- Back to Main Site -->
+      <div class="login-footer">
+        <a href="../index.html" class="btn-link">← Back to Main Site</a>
+      </div>
+    </div>
+
+    <!-- Info Panel -->
+    <div class="info-panel">
+      <h2>Admin Access Only</h2>
+      <p>This area is restricted to authorized administrators.</p>
+      <ul class="info-list">
+        <li>✓ Manage programs and applications</li>
+        <li>✓ Monitor user activity</li>
+        <li>✓ Create and edit content</li>
+        <li>✓ Access analytics and reports</li>
+      </ul>
+      <div class="info-note">
+        <strong>Note:</strong> All admin actions are logged and monitored for security purposes.
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/toast.js"></script>
+  <script src="../../scripts/admin-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Dual Connect</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+<body>
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <div class="admin-logo">
+        <h1>Dual Connect Admin</h1>
+      </div>
+      <div class="admin-user">
+        <span id="adminName">Admin User</span>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Layout -->
+  <div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <nav class="admin-nav">
+        <a href="dashboard.html" class="admin-nav-item active">
+          <span class="nav-icon">📊</span>
+          Dashboard
+        </a>
+        <a href="programs.html" class="admin-nav-item">
+          <span class="nav-icon">🎓</span>
+          Programs
+          <span class="nav-badge" id="programsCount">0</span>
+        </a>
+        <a href="applications.html" class="admin-nav-item">
+          <span class="nav-icon">📝</span>
+          Applications
+          <span class="nav-badge pending" id="pendingApps">0</span>
+        </a>
+        <a href="users.html" class="admin-nav-item">
+          <span class="nav-icon">👥</span>
+          Users
+          <span class="nav-badge" id="usersCount">0</span>
+        </a>
+        <a href="companies.html" class="admin-nav-item">
+          <span class="nav-icon">🏢</span>
+          Companies
+          <span class="nav-badge" id="companiesCount">0</span>
+        </a>
+        <a href="blog.html" class="admin-nav-item">
+          <span class="nav-icon">📰</span>
+          Blog Posts
+          <span class="nav-badge" id="postsCount">0</span>
+        </a>
+        <a href="faq.html" class="admin-nav-item">
+          <span class="nav-icon">❓</span>
+          FAQs
+          <span class="nav-badge" id="faqCount">0</span>
+        </a>
+        <a href="stories.html" class="admin-nav-item">
+          <span class="nav-icon">⭐</span>
+          Success Stories
+          <span class="nav-badge" id="storiesCount">0</span>
+        </a>
+        <a href="analytics.html" class="admin-nav-item">
+          <span class="nav-icon">📈</span>
+          Analytics
+        </a>
+        <a href="settings.html" class="admin-nav-item">
+          <span class="nav-icon">⚙️</span>
+          Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-header-section">
+        <h2>Dashboard Overview</h2>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="refreshData()">
+            <span>🔄</span> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🎓</div>
+          <div class="stat-content">
+            <h3 id="totalPrograms">0</h3>
+            <p>Total Programs</p>
+          </div>
+          <div class="stat-change positive">
+            <span>↑ 12%</span> from last month
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-content">
+            <h3 id="totalUsers">0</h3>
+            <p>Total Users</p>
+          </div>
+          <div class="stat-change positive">
+            <span>↑ 23%</span> from last month
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-content">
+            <h3 id="totalApplications">0</h3>
+            <p>Total Applications</p>
+          </div>
+          <div class="stat-change positive">
+            <span>↑ 18%</span> from last month
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-content">
+            <h3 id="pendingApplications">0</h3>
+            <p>Pending Applications</p>
+          </div>
+          <div class="stat-change">
+            <span>Needs Review</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-grid">
+        <!-- Applications Chart -->
+        <div class="chart-card">
+          <div class="card-header">
+            <h3>Applications Overview</h3>
+            <select id="applicationsTimeframe" class="select-sm">
+              <option value="7">Last 7 days</option>
+              <option value="30" selected>Last 30 days</option>
+              <option value="90">Last 90 days</option>
+            </select>
+          </div>
+          <div class="chart-content">
+            <canvas id="applicationsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- User Growth Chart -->
+        <div class="chart-card">
+          <div class="card-header">
+            <h3>User Growth</h3>
+            <select id="usersTimeframe" class="select-sm">
+              <option value="7">Last 7 days</option>
+              <option value="30" selected>Last 30 days</option>
+              <option value="90">Last 90 days</option>
+            </select>
+          </div>
+          <div class="chart-content">
+            <canvas id="usersChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="activity-section">
+        <div class="section-header">
+          <h3>Recent Activity</h3>
+          <a href="analytics.html" class="btn-link">View All</a>
+        </div>
+        <div class="activity-list" id="activityList">
+          <div class="loading">Loading recent activity...</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions-section">
+        <h3>Quick Actions</h3>
+        <div class="quick-actions-grid">
+          <a href="programs.html?action=create" class="quick-action-card">
+            <span class="action-icon">➕</span>
+            <h4>Add New Program</h4>
+            <p>Create a new Ausbildung or Duales Studium program</p>
+          </a>
+          <a href="blog.html?action=create" class="quick-action-card">
+            <span class="action-icon">📝</span>
+            <h4>Write Blog Post</h4>
+            <p>Create and publish a new blog article</p>
+          </a>
+          <a href="applications.html?status=pending" class="quick-action-card">
+            <span class="action-icon">👀</span>
+            <h4>Review Applications</h4>
+            <p>Process pending application submissions</p>
+          </a>
+          <a href="users.html" class="quick-action-card">
+            <span class="action-icon">👥</span>
+            <h4>Manage Users</h4>
+            <p>View and manage user accounts</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- System Status -->
+      <div class="system-status-section">
+        <h3>System Status</h3>
+        <div class="status-grid">
+          <div class="status-item">
+            <span class="status-indicator online"></span>
+            <div class="status-content">
+              <h4>API Server</h4>
+              <p>Running</p>
+            </div>
+          </div>
+          <div class="status-item">
+            <span class="status-indicator online"></span>
+            <div class="status-content">
+              <h4>Database</h4>
+              <p>Connected</p>
+            </div>
+          </div>
+          <div class="status-item">
+            <span class="status-indicator online"></span>
+            <div class="status-content">
+              <h4>File Storage</h4>
+              <p>Available</p>
+            </div>
+          </div>
+          <div class="status-item">
+            <span class="status-indicator online"></span>
+            <div class="status-content">
+              <h4>Email Service</h4>
+              <p>Operational</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/toast.js"></script>
+  <script src="../../scripts/admin-dashboard.js"></script>
+</body>
+</html>
