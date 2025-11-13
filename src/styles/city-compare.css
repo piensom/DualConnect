@@ -1,0 +1,365 @@
+/* City Comparison Page Styles */
+
+.city-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.city-header h1 {
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.city-header p {
+  color: #6b7280;
+  font-size: 1.125rem;
+}
+
+/* City Selector */
+.city-selector {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.city-selector h3 {
+  margin: 0 0 1.5rem;
+  color: #1e3a8a;
+}
+
+.selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.city-checkbox {
+  position: relative;
+}
+
+.city-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.city-checkbox label {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.city-checkbox label:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.city-checkbox input[type="checkbox"]:checked + label {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.city-checkbox label strong {
+  color: #1e3a8a;
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.city-state {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Comparison Result */
+.comparison-result {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.comparison-result h2 {
+  padding: 1.5rem 2rem;
+  margin: 0;
+  background: #f9fafb;
+  color: #1e3a8a;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.comparison-scroll {
+  overflow-x: auto;
+}
+
+/* City Comparison Table */
+.city-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.city-comparison-table thead {
+  background: #f9fafb;
+}
+
+.city-comparison-table th,
+.city-comparison-table td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.city-comparison-table th {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.city-comparison-table .row-header {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+.city-header-cell {
+  min-width: 200px;
+}
+
+.city-header-cell h3 {
+  margin: 0 0 0.25rem;
+  color: #1e3a8a;
+}
+
+.city-header-cell p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.highlight-row {
+  background: #fefce8;
+}
+
+.best-value {
+  background: #d1fae5;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.city-comparison-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.city-comparison-table .btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  display: block;
+  width: 100%;
+}
+
+/* Comparison Legend */
+.comparison-legend {
+  padding: 1rem 2rem;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.best-value-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #d1fae5;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* Cost Calculator */
+.cost-calculator {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.cost-calculator h3 {
+  margin: 0 0 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.5rem;
+}
+
+.cost-calculator > p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.calc-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calc-input label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.calc-input select,
+.calc-input input[type="number"] {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.calc-input input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.calc-result {
+  grid-column: 1 / -1;
+  background: #eff6ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.calc-result strong {
+  display: block;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.cost-city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.cost-city:last-child {
+  border-bottom: none;
+}
+
+.city-name {
+  font-weight: 500;
+  color: #374151;
+}
+
+.cost-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+/* City Info Cards */
+.city-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h4 {
+  margin: 0 0 1rem;
+  color: #1e3a8a;
+  font-size: 1.25rem;
+}
+
+.info-card p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .selector-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .city-header h1 {
+    font-size: 2rem;
+  }
+
+  .city-selector,
+  .cost-calculator {
+    padding: 1.5rem;
+  }
+
+  .selector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-scroll {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+
+  .city-comparison-table th,
+  .city-comparison-table td {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .city-header-cell {
+    min-width: 160px;
+  }
+
+  .cost-calculator h3 {
+    font-size: 1.25rem;
+  }
+
+  .cost-amount {
+    font-size: 1.25rem;
+  }
+
+  .city-info-cards {
+    grid-template-columns: 1fr;
+  }
+}
