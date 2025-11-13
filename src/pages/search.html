@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search dual education programs in Germany - Find Ausbildung and dual study opportunities">
+    <title>Programme suchen - Dual Connect</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/search.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">Dual<span>Connect</span></a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="search.html" class="nav-link active">Programme suchen</a></li>
+                    <li><a href="parents.html" class="nav-link">Für Eltern</a></li>
+                    <li><a href="funding.html" class="nav-link">Finanzierung</a></li>
+                    <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+                    <li><span class="lang-switcher">DE | EN</span></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > Programme suchen
+        </div>
+    </div>
+
+    <!-- SEARCH HEADER -->
+    <section class="search-header">
+        <div class="container">
+            <h1>Finde dein perfektes Programm</h1>
+            <p>Find Your Perfect Dual Education Program</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Suche nach Programmen, Unternehmen oder Berufsfeldern...">
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH RESULTS SECTION -->
+    <section class="search-results section">
+        <div class="container">
+            <div class="search-layout">
+                <!-- FILTERS SIDEBAR -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>Filter</h3>
+                        <button class="btn-text" id="clearFilters">Zurücksetzen</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Berufsfeld / Field of Study</label>
+                        <select id="filterField" class="filter-select">
+                            <option value="all">Alle Bereiche</option>
+                            <option value="IT">IT & Software</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Hospitality">Hospitality</option>
+                            <option value="Food & Crafts">Food & Crafts</option>
+                            <option value="Transport & Logistics">Transport & Logistics</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Stadt / Location</label>
+                        <select id="filterLocation" class="filter-select">
+                            <option value="all">Alle Städte</option>
+                            <option value="Berlin">Berlin</option>
+                            <option value="München">München</option>
+                            <option value="Hamburg">Hamburg</option>
+                            <option value="Frankfurt">Frankfurt</option>
+                            <option value="Stuttgart">Stuttgart</option>
+                            <option value="Walldorf">Walldorf</option>
+                            <option value="Wolfsburg">Wolfsburg</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Deutschkenntnisse / German Level</label>
+                        <select id="filterLanguage" class="filter-select">
+                            <option value="all">Alle Niveaus</option>
+                            <option value="A2">A1-A2 (Beginner)</option>
+                            <option value="B1">B1 (Intermediate)</option>
+                            <option value="B2">B2 (Upper Intermediate)</option>
+                            <option value="C1">C1-C2 (Advanced)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Programmtyp / Type</label>
+                        <select id="filterType" class="filter-select">
+                            <option value="all">Alle Typen</option>
+                            <option value="Ausbildung">Ausbildung</option>
+                            <option value="Duales Studium">Duales Studium</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filterInternational">
+                            <span>Nur internationale-freundlich</span>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-primary" id="applyFilters" style="width: 100%; margin-top: 1rem;">
+                        Filter anwenden
+                    </button>
+                </aside>
+
+                <!-- RESULTS AREA -->
+                <main class="results-area">
+                    <div class="results-header">
+                        <div class="results-count">
+                            <span id="resultsCount">Lade Programme...</span>
+                        </div>
+                        <div class="results-sort">
+                            <label>Sortieren:</label>
+                            <select id="sortBy" class="filter-select">
+                                <option value="relevance">Relevanz</option>
+                                <option value="name">Name (A-Z)</option>
+                                <option value="duration">Dauer</option>
+                                <option value="language">Sprachniveau</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="programsList" class="programs-list">
+                        <!-- Programs will be loaded here by JavaScript -->
+                    </div>
+
+                    <div class="no-results" id="noResults" style="display: none;">
+                        <h3>Keine Programme gefunden</h3>
+                        <p>Versuche andere Filter oder erweitere deine Suche.</p>
+                        <button class="btn btn-secondary" onclick="document.getElementById('clearFilters').click()">
+                            Filter zurücksetzen
+                        </button>
+                    </div>
+
+                    <div class="load-more" id="loadMore" style="display: none;">
+                        <button class="btn btn-secondary">Weitere Programme laden</button>
+                    </div>
+
+                    <!-- HELP SECTION -->
+                    <div class="help-section">
+                        <div class="help-card">
+                            <h3>📞 Brauchst du Hilfe?</h3>
+                            <p>Need help finding the right program? Talk to one of our advisors.</p>
+                            <a href="contact.html" class="btn btn-outline">Berater kontaktieren →</a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Über uns</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">Über Dual Connect</a></li>
+                        <li><a href="team.html" class="footer-link">Team</a></li>
+                        <li><a href="partners.html" class="footer-link">Partner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programme</h4>
+                    <ul class="footer-links">
+                        <li><a href="search.html" class="footer-link">Suche</a></li>
+                        <li><a href="search.html?type=ausbildung" class="footer-link">Ausbildung</a></li>
+                        <li><a href="search.html?type=duales-studium" class="footer-link">Duales Studium</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Unterstützung</h4>
+                    <ul class="footer-links">
+                        <li><a href="parents.html" class="footer-link">Für Eltern</a></li>
+                        <li><a href="funding.html" class="footer-link">Finanzierung</a></li>
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="contact.html" class="footer-link">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="resources.html" class="footer-link">Downloads</a></li>
+                        <li><a href="glossary.html" class="footer-link">Glossar</a></li>
+                        <li><a href="links.html" class="footer-link">Nützliche Links</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="partner-logos">
+                <span style="color: var(--light-gray); font-size: var(--font-size-sm);">Partner:</span>
+                <span style="color: var(--light-gray); font-size: var(--font-size-sm);">IHK | DAAD | Make it in Germany</span>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dual Connect - Educational Training Project</p>
+                <p>
+                    <a href="impressum.html" class="footer-link">Impressum</a> |
+                    <a href="privacy.html" class="footer-link">Datenschutz</a> |
+                    <a href="terms.html" class="footer-link">Nutzungsbedingungen</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        let allPrograms = [];
+        let filteredPrograms = [];
+
+        // Initialize page
+        async function initSearchPage() {
+            const loaded = await DualConnect.loadData();
+
+            if (loaded) {
+                allPrograms = window.DualConnect.programs;
+
+                // Apply initial filters from URL
+                applyFiltersFromURL();
+
+                // Display all programs initially
+                displayPrograms(allPrograms);
+            } else {
+                document.getElementById('programsList').innerHTML = `
+                    <div class="error-message">
+                        <p>Fehler beim Laden der Programme. Bitte versuche es später erneut.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Apply filters from URL parameters
+        function applyFiltersFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.has('field')) {
+                document.getElementById('filterField').value = urlParams.get('field');
+            }
+            if (urlParams.has('location')) {
+                document.getElementById('filterLocation').value = urlParams.get('location');
+            }
+            if (urlParams.has('type')) {
+                const type = urlParams.get('type');
+                if (type === 'ausbildung') {
+                    document.getElementById('filterType').value = 'Ausbildung';
+                } else if (type === 'duales-studium') {
+                    document.getElementById('filterType').value = 'Duales Studium';
+                }
+            }
+        }
+
+        // Display programs
+        function displayPrograms(programsToShow) {
+            const programsList = document.getElementById('programsList');
+            const noResults = document.getElementById('noResults');
+            const resultsCount = document.getElementById('resultsCount');
+
+            if (programsToShow.length === 0) {
+                programsList.innerHTML = '';
+                noResults.style.display = 'block';
+                resultsCount.textContent = 'Keine Programme gefunden';
+            } else {
+                noResults.style.display = 'none';
+                resultsCount.textContent = `${programsToShow.length} Programme gefunden`;
+
+                programsList.innerHTML = programsToShow.map(program =>
+                    DualConnect.createProgramCard(program)
+                ).join('');
+            }
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const filters = {
+                field: document.getElementById('filterField').value,
+                location: document.getElementById('filterLocation').value,
+                language: document.getElementById('filterLanguage').value,
+                type: document.getElementById('filterType').value,
+                international: document.getElementById('filterInternational').checked
+            };
+
+            filteredPrograms = DualConnect.filterPrograms(filters);
+            displayPrograms(filteredPrograms);
+        }
+
+        // Clear filters
+        function clearFilters() {
+            document.getElementById('filterField').value = 'all';
+            document.getElementById('filterLocation').value = 'all';
+            document.getElementById('filterLanguage').value = 'all';
+            document.getElementById('filterType').value = 'all';
+            document.getElementById('filterInternational').checked = false;
+
+            displayPrograms(allPrograms);
+        }
+
+        // Search functionality
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            let results = filteredPrograms.length > 0 ? filteredPrograms : allPrograms;
+
+            if (searchTerm) {
+                results = results.filter(program => {
+                    const company = DualConnect.getCompanyById(program.company_id);
+                    return (
+                        program.program_name.toLowerCase().includes(searchTerm) ||
+                        program.field_of_study.toLowerCase().includes(searchTerm) ||
+                        program.description_de.toLowerCase().includes(searchTerm) ||
+                        (program.description_en && program.description_en.toLowerCase().includes(searchTerm)) ||
+                        (company && company.company_name.toLowerCase().includes(searchTerm))
+                    );
+                });
+            }
+
+            displayPrograms(results);
+        }
+
+        // Event listeners
+        document.getElementById('applyFilters').addEventListener('click', applyFilters);
+        document.getElementById('clearFilters').addEventListener('click', clearFilters);
+        document.getElementById('searchInput').addEventListener('input', performSearch);
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initSearchPage);
+    </script>
+</body>
+</html>

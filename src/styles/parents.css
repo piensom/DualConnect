@@ -1,0 +1,425 @@
+/* Parents Page Styles - Simple & Accessible */
+
+.parents-hero {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, #E55A2B 100%);
+    color: var(--white);
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+}
+
+.parents-hero h1 {
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-lg);
+    opacity: 0.95;
+}
+
+.content-box {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.subtitle {
+    color: var(--neutral-gray);
+    font-style: italic;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Visual Diagram */
+.visual-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+    flex-wrap: wrap;
+}
+
+.diagram-part {
+    background-color: var(--white);
+    border: 3px solid var(--border-gray);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    text-align: center;
+    min-width: 150px;
+}
+
+.diagram-part.school {
+    border-color: var(--primary-blue);
+}
+
+.diagram-part.company {
+    border-color: var(--secondary-green);
+}
+
+.diagram-part.result {
+    border-color: var(--accent-orange);
+}
+
+.diagram-part .icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.diagram-part h3 {
+    margin: var(--spacing-sm) 0;
+    font-size: var(--font-size-lg);
+}
+
+.diagram-plus, .diagram-equals {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--neutral-gray);
+}
+
+.simple-explanation {
+    background-color: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-xl) 0;
+}
+
+.simple-list {
+    font-size: var(--font-size-lg);
+    margin: var(--spacing-md) 0;
+}
+
+.simple-list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.highlight-box {
+    background-color: var(--secondary-green);
+    color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: var(--spacing-sm) 0;
+}
+
+.translation-box {
+    background-color: #E8F4F8;
+    border-left: 4px solid var(--primary-blue);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.translation {
+    color: var(--neutral-gray);
+    font-style: italic;
+    font-size: var(--font-size-sm);
+    margin-top: 0.5rem;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.benefit-card {
+    background-color: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.benefit-card h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-xl) 0;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.timeline-point {
+    text-align: center;
+}
+
+.point-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0052A3 100%);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin: 0 auto var(--spacing-sm);
+}
+
+.timeline-point.end .point-circle {
+    background: linear-gradient(135deg, var(--secondary-green) 0%, #1E8738 100%);
+}
+
+.point-label {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+
+.timeline-line {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: var(--spacing-lg) 0;
+    min-width: 200px;
+}
+
+.timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--primary-blue);
+    transform: translateY(-50%);
+}
+
+.timeline-line > span {
+    background-color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--primary-blue);
+    border-radius: 20px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+
+.timeline-details {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.info-text {
+    text-align: center;
+    color: var(--neutral-gray);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xl);
+}
+
+/* Money Section */
+.money-answer {
+    background: linear-gradient(135deg, var(--secondary-green) 0%, #1E8738 100%);
+    color: var(--white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin: var(--spacing-xl) 0;
+}
+
+.money-answer h3 {
+    color: var(--white);
+}
+
+.big-text {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin: var(--spacing-md) 0;
+}
+
+.money-details {
+    background-color: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+}
+
+.money-list {
+    font-size: var(--font-size-lg);
+    margin: var(--spacing-md) 0;
+}
+
+.money-list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.extra-help-box {
+    background-color: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-lg);
+    border-left: 4px solid var(--accent-orange);
+}
+
+/* FAQ */
+.faq-list {
+    margin-top: var(--spacing-xl);
+}
+
+.faq-item {
+    border: 1px solid var(--border-gray);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: var(--white);
+    border: none;
+    padding: var(--spacing-lg);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    transition: background-color var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: var(--light-gray);
+}
+
+.faq-icon {
+    font-size: var(--font-size-xl);
+    color: var(--primary-blue);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 var(--spacing-lg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: var(--spacing-lg);
+}
+
+.faq-answer p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Success Stories */
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.story-card {
+    background-color: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.story-photo {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.story-card blockquote {
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    margin: var(--spacing-md) 0;
+    border-left: 4px solid var(--primary-blue);
+    padding-left: var(--spacing-md);
+}
+
+.story-author {
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Support Steps */
+.support-steps {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.support-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    background-color: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.support-step h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* CTA Section */
+.cta-content {
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .visual-diagram {
+        flex-direction: column;
+    }
+
+    .diagram-plus, .diagram-equals {
+        transform: rotate(90deg);
+    }
+
+    .timeline {
+        flex-direction: column;
+    }
+
+    .timeline-line {
+        width: 100%;
+    }
+
+    .timeline-line::before {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        height: auto;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}

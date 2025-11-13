@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontakt - Berater und Ansprechpartner für internationale Familien">
+    <title>Kontakt - Dual Connect</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">Dual<span>Connect</span></a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="search.html" class="nav-link">Programme suchen</a></li>
+                    <li><a href="parents.html" class="nav-link">Für Eltern</a></li>
+                    <li><a href="funding.html" class="nav-link">Finanzierung</a></li>
+                    <li><a href="contact.html" class="nav-link active">Kontakt</a></li>
+                    <li><span class="lang-switcher">DE | EN</span></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>📞 Wir helfen Ihnen gerne</h1>
+            <p class="hero-subtitle">We're here to help you</p>
+            <p>Unsere Berater sprechen viele Sprachen und kennen Ihre Situation.</p>
+            <p><em>Our advisors speak many languages and understand your situation.</em></p>
+        </div>
+    </section>
+
+    <!-- QUICK CONTACT -->
+    <section class="section">
+        <div class="container">
+            <div class="quick-contact-grid">
+                <div class="quick-contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@dualconnect.de">info@dualconnect.de</a></p>
+                    <p class="response-time">Antwort innerhalb 24 Stunden</p>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Telefon</h3>
+                    <p><a href="tel:+4930123456789">+49 30 123 456 789</a></p>
+                    <p class="response-time">Mo-Fr 9:00-17:00 Uhr</p>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/4930123456789">+49 30 123 456 789</a></p>
+                    <p class="response-time">Schnelle Antworten</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER SECTION -->
+    <section class="section" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Finden Sie den richtigen Berater</h2>
+
+            <div class="contact-filters">
+                <select id="filterLanguage" class="filter-select">
+                    <option value="all">Alle Sprachen</option>
+                    <option value="Deutsch">Deutsch</option>
+                    <option value="English">English</option>
+                    <option value="العربية">العربية (Arabic)</option>
+                    <option value="Türkçe">Türkçe (Turkish)</option>
+                    <option value="فارسی">فارسی (Farsi)</option>
+                    <option value="Русский">Русский (Russian)</option>
+                </select>
+
+                <select id="filterType" class="filter-select">
+                    <option value="all">Alle Organisationen</option>
+                    <option value="Company">Unternehmen</option>
+                    <option value="IHK">IHK</option>
+                    <option value="University">Universität</option>
+                    <option value="NGO">Beratungsstelle</option>
+                    <option value="Government">Behörde</option>
+                </select>
+
+                <button class="btn btn-secondary" id="clearContactFilters">Filter zurücksetzen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVISORS DIRECTORY -->
+    <section class="section">
+        <div class="container">
+            <div id="advisorsList" class="advisors-grid">
+                <!-- Loaded by JavaScript -->
+            </div>
+
+            <div id="noAdvisors" style="display: none;" class="no-results">
+                <p>Keine Berater mit diesen Kriterien gefunden.</p>
+                <button class="btn btn-primary" onclick="document.getElementById('clearContactFilters').click()">
+                    Filter zurücksetzen
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIZATION INFO -->
+    <section class="section" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">Wichtige Organisationen</h2>
+
+            <div class="organizations-grid">
+                <div class="org-card">
+                    <h3>🏢 IHK (Industrie- und Handelskammer)</h3>
+                    <p>Die IHK hilft bei Ausbildungsplätzen und Anerkennung von Abschlüssen.</p>
+                    <p class="translation">IHK helps with training positions and credential recognition.</p>
+                    <a href="https://www.ihk.de" target="_blank" class="btn btn-outline">Website besuchen →</a>
+                </div>
+
+                <div class="org-card">
+                    <h3>🎓 DAAD</h3>
+                    <p>Deutscher Akademischer Austauschdienst - für Studium und Stipendien.</p>
+                    <p class="translation">German Academic Exchange Service - for studies and scholarships.</p>
+                    <a href="https://www.daad.de" target="_blank" class="btn btn-outline">Website besuchen →</a>
+                </div>
+
+                <div class="org-card">
+                    <h3>🇩🇪 Make it in Germany</h3>
+                    <p>Offizielle Informationen über Arbeiten und Leben in Deutschland.</p>
+                    <p class="translation">Official information about working and living in Germany.</p>
+                    <a href="https://www.make-it-in-germany.com" target="_blank" class="btn btn-outline">Website besuchen →</a>
+                </div>
+
+                <div class="org-card">
+                    <h3>🏛 Bundesagentur für Arbeit</h3>
+                    <p>Hilfe bei Jobsuche, Ausbildung und finanzieller Unterstützung (BAB).</p>
+                    <p class="translation">Help with job search, training, and financial support.</p>
+                    <a href="https://www.arbeitsagentur.de" target="_blank" class="btn btn-outline">Website besuchen →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-form-section">
+                <h2>Nachricht senden</h2>
+                <p>Haben Sie Fragen? Schreiben Sie uns! / Have questions? Write to us!</p>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Betreff / Subject *</label>
+                        <input type="text" id="subject" name="subject" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="language">Bevorzugte Sprache / Preferred Language</label>
+                        <select id="language" name="language" class="form-input">
+                            <option value="de">Deutsch</option>
+                            <option value="en">English</option>
+                            <option value="ar">العربية (Arabic)</option>
+                            <option value="tr">Türkçe</option>
+                            <option value="fa">فارسی</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Nachricht / Message *</label>
+                        <textarea id="message" name="message" rows="6" required class="form-input"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Nachricht senden →</button>
+
+                    <p class="form-note">* Pflichtfelder / Required fields</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Über uns</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">Über Dual Connect</a></li>
+                        <li><a href="team.html" class="footer-link">Team</a></li>
+                        <li><a href="partners.html" class="footer-link">Partner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programme</h4>
+                    <ul class="footer-links">
+                        <li><a href="search.html" class="footer-link">Suche</a></li>
+                        <li><a href="search.html?type=ausbildung" class="footer-link">Ausbildung</a></li>
+                        <li><a href="search.html?type=duales-studium" class="footer-link">Duales Studium</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Unterstützung</h4>
+                    <ul class="footer-links">
+                        <li><a href="parents.html" class="footer-link">Für Eltern</a></li>
+                        <li><a href="funding.html" class="footer-link">Finanzierung</a></li>
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="contact.html" class="footer-link">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="resources.html" class="footer-link">Downloads</a></li>
+                        <li><a href="glossary.html" class="footer-link">Glossar</a></li>
+                        <li><a href="links.html" class="footer-link">Nützliche Links</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="partner-logos">
+                <span style="color: var(--light-gray); font-size: var(--font-size-sm);">Partner:</span>
+                <span style="color: var(--light-gray); font-size: var(--font-size-sm);">IHK | DAAD | Make it in Germany</span>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dual Connect - Educational Training Project</p>
+                <p>
+                    <a href="impressum.html" class="footer-link">Impressum</a> |
+                    <a href="privacy.html" class="footer-link">Datenschutz</a> |
+                    <a href="terms.html" class="footer-link">Nutzungsbedingungen</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        let allContacts = [];
+
+        // Initialize page
+        async function initContactPage() {
+            const loaded = await DualConnect.loadData();
+
+            if (loaded) {
+                allContacts = window.DualConnect.contacts;
+                displayAdvisors(allContacts);
+            } else {
+                document.getElementById('advisorsList').innerHTML = `
+                    <div class="error-message">
+                        <p>Fehler beim Laden der Kontakte. Bitte versuche es später erneut.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Display advisors
+        function displayAdvisors(contacts) {
+            const advisorsList = document.getElementById('advisorsList');
+            const noAdvisors = document.getElementById('noAdvisors');
+
+            if (contacts.length === 0) {
+                advisorsList.innerHTML = '';
+                noAdvisors.style.display = 'block';
+            } else {
+                noAdvisors.style.display = 'none';
+                advisorsList.innerHTML = contacts.map(contact => createAdvisorCard(contact)).join('');
+            }
+        }
+
+        // Create advisor card
+        function createAdvisorCard(contact) {
+            const orgIcon = contact.organization_type === 'Company' ? '🏢' :
+                           contact.organization_type === 'IHK' ? '📋' :
+                           contact.organization_type === 'University' ? '🎓' :
+                           contact.organization_type === 'NGO' ? '🤝' : '🏛';
+
+            return `
+                <div class="advisor-card">
+                    <div class="advisor-photo">${contact.first_name.charAt(0)}${contact.last_name.charAt(0)}</div>
+                    <div class="advisor-info">
+                        <h3>${contact.first_name} ${contact.last_name}</h3>
+                        <p class="advisor-role">${contact.role}</p>
+                        <p class="advisor-org">${orgIcon} ${contact.organization_type}</p>
+
+                        <div class="advisor-details">
+                            <p>📧 <a href="mailto:${contact.email}">${contact.email}</a></p>
+                            ${contact.phone ? `<p>📞 ${contact.phone}</p>` : ''}
+                            ${contact.office_hours ? `<p>🕐 ${contact.office_hours}</p>` : ''}
+                            ${contact.languages_spoken ? `<p>🗣 ${contact.languages_spoken}</p>` : ''}
+                        </div>
+
+                        ${contact.specialization ? `
+                            <div class="advisor-specialization">
+                                <strong>Spezialisierung:</strong> ${contact.specialization}
+                            </div>
+                        ` : ''}
+
+                        ${contact.available_for_consultation ? `
+                            <button class="btn btn-primary btn-sm" onclick="window.location.href='mailto:${contact.email}'">
+                                Kontakt aufnehmen →
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Filter contacts
+        function filterContacts() {
+            const languageFilter = document.getElementById('filterLanguage').value;
+            const typeFilter = document.getElementById('filterType').value;
+
+            let filtered = allContacts;
+
+            if (languageFilter !== 'all') {
+                filtered = filtered.filter(c =>
+                    c.languages_spoken && c.languages_spoken.includes(languageFilter)
+                );
+            }
+
+            if (typeFilter !== 'all') {
+                filtered = filtered.filter(c => c.organization_type === typeFilter);
+            }
+
+            displayAdvisors(filtered);
+        }
+
+        // Clear filters
+        function clearContactFilters() {
+            document.getElementById('filterLanguage').value = 'all';
+            document.getElementById('filterType').value = 'all';
+            displayAdvisors(allContacts);
+        }
+
+        // Event listeners
+        document.getElementById('filterLanguage').addEventListener('change', filterContacts);
+        document.getElementById('filterType').addEventListener('change', filterContacts);
+        document.getElementById('clearContactFilters').addEventListener('click', clearContactFilters);
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.\n\nThank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initContactPage);
+    </script>
+</body>
+</html>
