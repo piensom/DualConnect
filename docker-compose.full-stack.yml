@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: dualconnect_db
+    environment:
+      POSTGRES_DB: dualconnect
+      POSTGRES_USER: dualconnect_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-change_this_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/config/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dualconnect_user -d dualconnect"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dualconnect_network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: dualconnect_api
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: dualconnect
+      DB_USER: dualconnect_user
+      DB_PASSWORD: ${DB_PASSWORD:-change_this_password}
+      JWT_SECRET: ${JWT_SECRET:-your_jwt_secret_change_this}
+      JWT_EXPIRE: 7d
+      FRONTEND_URL: http://localhost:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - uploads:/app/uploads
+    command: npm start
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - dualconnect_network
+
+  # Frontend (nginx)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dualconnect_web
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./src:/usr/share/nginx/html/src:ro
+      - ./database/sample-data:/usr/share/nginx/html/database/sample-data:ro
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - dualconnect_network
+
+volumes:
+  postgres_data:
+    driver: local
+  uploads:
+    driver: local
+
+networks:
+  dualconnect_network:
+    driver: bridge

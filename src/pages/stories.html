@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erfolgsgeschichten - Dual Connect</title>
+  <meta name="description" content="Lesen Sie inspirierende Erfolgsgeschichten von internationalen Studenten in Deutschland">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/stories.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="parents.html">Für Eltern</a></li>
+        <li><a href="stories.html" class="active">Erfolgsgeschichten</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1>Erfolgsgeschichten</h1>
+        <p class="subtitle">Lassen Sie sich von echten Erfahrungen inspirieren</p>
+        <p>Entdecken Sie, wie internationale Studierende ihren Traum von einer dualen Ausbildung in Deutschland verwirklicht haben</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="filters">
+        <div class="filter-group">
+          <label>Nach Land filtern:</label>
+          <select id="countryFilter">
+            <option value="all">Alle Länder</option>
+            <option value="Turkey">Türkei</option>
+            <option value="Syria">Syrien</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Iraq">Irak</option>
+            <option value="India">Indien</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Other">Andere</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>
+            <input type="checkbox" id="featuredFilter">
+            Nur hervorgehobene Geschichten
+          </label>
+        </div>
+      </div>
+
+      <div id="storiesGrid" class="stories-grid">
+        <!-- Stories populated by JavaScript -->
+        <div class="loading">Lade Erfolgsgeschichten...</div>
+      </div>
+
+      <div class="share-story-cta">
+        <div class="cta-content">
+          <h3>Haben Sie auch eine Erfolgsgeschichte?</h3>
+          <p>Teilen Sie Ihre Erfahrungen und inspirieren Sie andere!</p>
+          <a href="dashboard.html" class="btn btn-primary">Ihre Geschichte teilen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dual Connect. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/stories.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Dashboard - Dual Connect</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="#" id="logoutBtn">Abmelden</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <aside class="sidebar">
+      <div class="user-profile">
+        <div class="avatar">
+          <span id="userInitials">DU</span>
+        </div>
+        <h3 id="userName">Demo User</h3>
+        <p id="userEmail">demo@example.com</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#overview" class="menu-item active" data-section="overview">
+          <span class="icon">📊</span>
+          Übersicht
+        </a>
+        <a href="#applications" class="menu-item" data-section="applications">
+          <span class="icon">📋</span>
+          Meine Bewerbungen
+          <span class="badge" id="applicationsBadge">0</span>
+        </a>
+        <a href="#bookmarks" class="menu-item" data-section="bookmarks">
+          <span class="icon">⭐</span>
+          Favoriten
+          <span class="badge" id="bookmarksBadge">0</span>
+        </a>
+        <a href="#notifications" class="menu-item" data-section="notifications">
+          <span class="icon">🔔</span>
+          Benachrichtigungen
+          <span class="badge" id="notificationsBadge">0</span>
+        </a>
+        <a href="#checklists" class="menu-item" data-section="checklists">
+          <span class="icon">✅</span>
+          Checklisten
+        </a>
+        <a href="#profile" class="menu-item" data-section="profile">
+          <span class="icon">⚙️</span>
+          Profil bearbeiten
+        </a>
+      </nav>
+    </aside>
+
+    <div class="main-content">
+      <!-- Overview Section -->
+      <section id="overview" class="content-section active">
+        <h2>Willkommen zurück!</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📋</div>
+            <div class="stat-info">
+              <div class="stat-value" id="totalApplications">0</div>
+              <div class="stat-label">Bewerbungen</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-info">
+              <div class="stat-value" id="pendingApplications">0</div>
+              <div class="stat-label">In Bearbeitung</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-info">
+              <div class="stat-value" id="totalBookmarks">0</div>
+              <div class="stat-label">Favoriten</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="acceptedApplications">0</div>
+              <div class="stat-label">Angenommen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <h3>Schnellzugriff</h3>
+          <div class="action-buttons">
+            <a href="search.html" class="action-btn">
+              <span class="icon">🔍</span>
+              Programme suchen
+            </a>
+            <a href="faq.html" class="action-btn">
+              <span class="icon">❓</span>
+              FAQ
+            </a>
+            <a href="glossary.html" class="action-btn">
+              <span class="icon">📖</span>
+              Glossar
+            </a>
+            <a href="contact.html" class="action-btn">
+              <span class="icon">💬</span>
+              Kontakt aufnehmen
+            </a>
+          </div>
+        </div>
+
+        <div class="recent-activity">
+          <h3>Neueste Aktivitäten</h3>
+          <div id="recentActivity" class="activity-list">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Applications Section -->
+      <section id="applications" class="content-section">
+        <div class="section-header">
+          <h2>Meine Bewerbungen</h2>
+          <a href="search.html" class="btn btn-primary">Neue Bewerbung</a>
+        </div>
+
+        <div class="applications-filter">
+          <button class="filter-btn active" data-filter="all">Alle</button>
+          <button class="filter-btn" data-filter="draft">Entwurf</button>
+          <button class="filter-btn" data-filter="submitted">Eingereicht</button>
+          <button class="filter-btn" data-filter="under_review">In Prüfung</button>
+          <button class="filter-btn" data-filter="accepted">Angenommen</button>
+          <button class="filter-btn" data-filter="rejected">Abgelehnt</button>
+        </div>
+
+        <div id="applicationsList" class="applications-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Bookmarks Section -->
+      <section id="bookmarks" class="content-section">
+        <h2>Meine Favoriten</h2>
+        <div id="bookmarksList" class="bookmarks-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Notifications Section -->
+      <section id="notifications" class="content-section">
+        <div class="section-header">
+          <h2>Benachrichtigungen</h2>
+          <button id="markAllRead" class="btn btn-text">Alle als gelesen markieren</button>
+        </div>
+        <div id="notificationsList" class="notifications-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Checklists Section -->
+      <section id="checklists" class="content-section">
+        <h2>Meine Checklisten</h2>
+        <div id="checklistsList" class="checklists-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Profile Section -->
+      <section id="profile" class="content-section">
+        <h2>Profil bearbeiten</h2>
+        <form id="profileForm" class="profile-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profileFirstName">Vorname</label>
+              <input type="text" id="profileFirstName" name="first_name">
+            </div>
+            <div class="form-group">
+              <label for="profileLastName">Nachname</label>
+              <input type="text" id="profileLastName" name="last_name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="profileEmail">E-Mail</label>
+            <input type="email" id="profileEmail" name="email" disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="profilePhone">Telefon</label>
+            <input type="tel" id="profilePhone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label for="profileCountry">Herkunftsland</label>
+            <input type="text" id="profileCountry" name="country_of_origin">
+          </div>
+
+          <div class="form-group">
+            <label for="profileLanguage">Bevorzugte Sprache</label>
+            <select id="profileLanguage" name="preferred_language">
+              <option value="de">Deutsch</option>
+              <option value="en">English</option>
+              <option value="tr">Türkçe</option>
+              <option value="ar">العربية</option>
+              <option value="es">Español</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+        </form>
+
+        <div class="password-section">
+          <h3>Passwort ändern</h3>
+          <form id="passwordForm">
+            <div class="form-group">
+              <label for="currentPassword">Aktuelles Passwort</label>
+              <input type="password" id="currentPassword" name="current_password">
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Neues Passwort</label>
+              <input type="password" id="newPassword" name="new_password">
+            </div>
+            <div class="form-group">
+              <label for="confirmNewPassword">Neues Passwort bestätigen</label>
+              <input type="password" id="confirmNewPassword" name="confirm_password">
+            </div>
+            <button type="submit" class="btn btn-secondary">Passwort ändern</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../scripts/dashboard.js"></script>
+</body>
+</html>

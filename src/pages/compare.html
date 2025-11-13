@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programme vergleichen - Dual Connect</title>
+  <meta name="description" content="Vergleichen Sie verschiedene duale Ausbildungsprogramme">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/compare.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="parents.html">Für Eltern</a></li>
+        <li><a href="compare.html" class="active">Vergleichen</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="compare-header">
+      <h1>Programme vergleichen</h1>
+      <p>Vergleichen Sie bis zu 5 Programme nebeneinander</p>
+    </div>
+
+    <div class="program-selector">
+      <h3>Programme auswählen</h3>
+      <div class="selector-content">
+        <input type="text" id="programSearch" placeholder="Programmname suchen...">
+        <div id="programSuggestions" class="suggestions-dropdown"></div>
+      </div>
+      <div id="selectedPrograms" class="selected-programs">
+        <!-- Selected programs chips -->
+      </div>
+    </div>
+
+    <div id="comparisonTable" class="comparison-container">
+      <div class="empty-state">
+        <div class="empty-icon">📊</div>
+        <h3>Wählen Sie mindestens 2 Programme zum Vergleichen</h3>
+        <p>Suchen Sie oben nach Programmen und fügen Sie sie hinzu</p>
+        <a href="search.html" class="btn btn-primary">Zur Programmsuche</a>
+      </div>
+    </div>
+
+    <div class="comparison-tools">
+      <button id="clearAll" class="btn btn-secondary" style="display: none;">Alle entfernen</button>
+      <button id="printComparison" class="btn btn-primary" style="display: none;">Als PDF exportieren</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dual Connect. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/compare.js"></script>
+</body>
+</html>

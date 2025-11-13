@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Städte vergleichen - Dual Connect</title>
+  <meta name="description" content="Vergleichen Sie Lebenshaltungskosten und Informationen verschiedener deutscher Städte">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/city-compare.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="city-compare.html" class="active">Städtevergleich</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="city-header">
+      <h1>Städte vergleichen</h1>
+      <p>Finden Sie die beste Stadt für Ihre duale Ausbildung</p>
+    </div>
+
+    <div class="city-selector">
+      <h3>Städte auswählen (max. 4)</h3>
+      <div class="selector-grid" id="citySelector">
+        <!-- Cities loaded by JavaScript -->
+      </div>
+    </div>
+
+    <div id="comparisonResult" class="comparison-result">
+      <!-- Comparison table populated by JavaScript -->
+    </div>
+
+    <div class="cost-calculator">
+      <h3>💰 Monatlicher Budgetrechner</h3>
+      <p>Schätzen Sie Ihre monatlichen Kosten</p>
+
+      <div class="calculator-grid">
+        <div class="calc-input">
+          <label>Wohnsituation:</label>
+          <select id="housingType">
+            <option value="shared">WG-Zimmer</option>
+            <option value="1br">1-Zimmer Wohnung</option>
+            <option value="2br">2-Zimmer Wohnung</option>
+          </select>
+        </div>
+
+        <div class="calc-input">
+          <label>Öffentliche Verkehrsmittel:</label>
+          <input type="checkbox" id="publicTransport" checked>
+        </div>
+
+        <div class="calc-input">
+          <label>Essen (Auswärts/Woche):</label>
+          <input type="number" id="mealsOut" value="3" min="0" max="21">
+        </div>
+
+        <div class="calc-result" id="calcResult">
+          <strong>Geschätzte monatliche Kosten:</strong>
+          <div class="cost-amount">€ 0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-info-cards">
+      <div class="info-card">
+        <h4>🏙️ Über deutsche Städte</h4>
+        <p>Deutschland bietet vielfältige Städte mit unterschiedlichen Vorteilen. Größere Städte wie München und Frankfurt haben mehr Jobangebote, sind aber teurer. Kleinere Städte sind günstiger und bieten oft eine bessere Work-Life-Balance.</p>
+      </div>
+
+      <div class="info-card">
+        <h4>💡 Tipp</h4>
+        <p>Berücksichtigen Sie nicht nur die Kosten, sondern auch die Verfügbarkeit von Programmen in Ihrem Bereich, die Lebensqualität und die Nähe zu Ihren Interessen.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dual Connect. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/city-compare.js"></script>
+</body>
+</html>

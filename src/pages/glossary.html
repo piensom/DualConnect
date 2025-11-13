@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossar - Dual Connect</title>
+  <meta name="description" content="Wichtige Begriffe rund um duale Ausbildung in Deutschland erklärt">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/glossary.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="glossary.html" class="active">Glossar</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container glossary-container">
+    <div class="glossary-header">
+      <h1>Glossar</h1>
+      <p>Wichtige Begriffe rund um duale Ausbildung in Deutschland</p>
+
+      <div class="glossary-search">
+        <input type="text" id="glossarySearch" placeholder="Begriff suchen...">
+        <button class="search-btn">🔍</button>
+      </div>
+    </div>
+
+    <div class="alphabet-nav">
+      <a href="#" class="letter-link active" data-letter="all">Alle</a>
+      <a href="#" class="letter-link" data-letter="A">A</a>
+      <a href="#" class="letter-link" data-letter="B">B</a>
+      <a href="#" class="letter-link" data-letter="C">C</a>
+      <a href="#" class="letter-link" data-letter="D">D</a>
+      <a href="#" class="letter-link" data-letter="E">E</a>
+      <a href="#" class="letter-link" data-letter="F">F</a>
+      <a href="#" class="letter-link" data-letter="G">G</a>
+      <a href="#" class="letter-link" data-letter="H">H</a>
+      <a href="#" class="letter-link" data-letter="I">I</a>
+      <a href="#" class="letter-link" data-letter="J">J</a>
+      <a href="#" class="letter-link" data-letter="K">K</a>
+      <a href="#" class="letter-link" data-letter="L">L</a>
+      <a href="#" class="letter-link" data-letter="M">M</a>
+      <a href="#" class="letter-link" data-letter="N">N</a>
+      <a href="#" class="letter-link" data-letter="O">O</a>
+      <a href="#" class="letter-link" data-letter="P">P</a>
+      <a href="#" class="letter-link" data-letter="Q">Q</a>
+      <a href="#" class="letter-link" data-letter="R">R</a>
+      <a href="#" class="letter-link" data-letter="S">S</a>
+      <a href="#" class="letter-link" data-letter="T">T</a>
+      <a href="#" class="letter-link" data-letter="U">U</a>
+      <a href="#" class="letter-link" data-letter="V">V</a>
+      <a href="#" class="letter-link" data-letter="W">W</a>
+      <a href="#" class="letter-link" data-letter="X">X</a>
+      <a href="#" class="letter-link" data-letter="Y">Y</a>
+      <a href="#" class="letter-link" data-letter="Z">Z</a>
+    </div>
+
+    <div class="glossary-content">
+      <div class="language-selector">
+        <label>Sprache:</label>
+        <select id="languageSelect">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+          <option value="tr">Türkçe</option>
+          <option value="ar">العربية</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+
+      <div id="glossaryList" class="glossary-list">
+        <!-- Terms loaded by JavaScript -->
+        <div class="loading">Lade Begriffe...</div>
+      </div>
+    </div>
+
+    <div class="glossary-footer">
+      <div class="info-box">
+        <h3>Begriff nicht gefunden?</h3>
+        <p>Schlagen Sie uns vor, welche Begriffe wir hinzufügen sollen</p>
+        <a href="contact.html" class="btn btn-primary">Kontakt</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dual Connect. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/glossary.js"></script>
+</body>
+</html>

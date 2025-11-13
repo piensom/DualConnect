@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrierung - Dual Connect</title>
+  <meta name="description" content="Create your Dual Connect account">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/auth.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="parents.html">Für Eltern</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Konto erstellen</h2>
+        <p>Starten Sie Ihre Reise zu einer dualen Ausbildung</p>
+      </div>
+
+      <form id="registerForm" class="auth-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">Vorname</label>
+            <input type="text" id="first_name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last_name">Nachname</label>
+            <input type="text" id="last_name" name="last_name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" name="email" required placeholder="ihre@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Passwort</label>
+          <input type="password" id="password" name="password" required placeholder="Mindestens 8 Zeichen">
+          <small class="form-hint">Mindestens 8 Zeichen</small>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password">Passwort bestätigen</label>
+          <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="country_of_origin">Herkunftsland</label>
+          <select id="country_of_origin" name="country_of_origin" required>
+            <option value="">Bitte wählen</option>
+            <option value="Turkey">Türkei / Turkey</option>
+            <option value="Syria">Syrien / Syria</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Iraq">Irak / Iraq</option>
+            <option value="India">Indien / India</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Egypt">Ägypten / Egypt</option>
+            <option value="Morocco">Marokko / Morocco</option>
+            <option value="Other">Andere / Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefonnummer (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+49 123 456789">
+        </div>
+
+        <div class="form-group">
+          <label for="preferred_language">Bevorzugte Sprache</label>
+          <select id="preferred_language" name="preferred_language">
+            <option value="de">Deutsch</option>
+            <option value="en">English</option>
+            <option value="tr">Türkçe</option>
+            <option value="ar">العربية</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="terms" required>
+            <span>Ich akzeptiere die <a href="#" target="_blank">Nutzungsbedingungen</a> und <a href="#" target="_blank">Datenschutzerklärung</a></span>
+          </label>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <button type="submit" class="btn btn-primary btn-block">Konto erstellen</button>
+      </form>
+
+      <div class="auth-divider">
+        <span>oder</span>
+      </div>
+
+      <div class="auth-footer">
+        <p>Bereits registriert? <a href="login.html">Jetzt anmelden</a></p>
+      </div>
+    </div>
+
+    <div class="auth-info">
+      <div class="info-box">
+        <h3>🎯 Kostenlos & Unverbindlich</h3>
+        <p>Die Registrierung ist völlig kostenlos und Sie gehen keine Verpflichtungen ein.</p>
+      </div>
+      <div class="info-box">
+        <h3>🔒 Ihre Daten sind sicher</h3>
+        <p>Wir verwenden modernste Verschlüsselung zum Schutz Ihrer persönlichen Informationen.</p>
+      </div>
+      <div class="info-box">
+        <h3>🌍 Mehrsprachig</h3>
+        <p>Nutzen Sie die Plattform in Ihrer bevorzugten Sprache.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="../scripts/auth.js"></script>
+</body>
+</html>

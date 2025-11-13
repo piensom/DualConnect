@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Dual Connect</title>
+  <meta name="description" content="Neuigkeiten, Tipps und Artikel über duale Ausbildung in Deutschland">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/blog.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Dual Connect Blog</h1>
+        <p>Neuigkeiten, Tipps und hilfreiche Artikel für Ihre duale Ausbildung</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="blog-layout">
+        <aside class="blog-sidebar">
+          <div class="sidebar-widget">
+            <h3>Kategorien</h3>
+            <ul class="category-list">
+              <li><a href="#" class="active" data-category="all">Alle Artikel</a></li>
+              <li><a href="#" data-category="News">Neuigkeiten</a></li>
+              <li><a href="#" data-category="Tips">Tipps & Tricks</a></li>
+              <li><a href="#" data-category="Interviews">Interviews</a></li>
+              <li><a href="#" data-category="Career">Karriere</a></li>
+              <li><a href="#" data-category="Immigration">Immigration</a></li>
+              <li><a href="#" data-category="Culture">Kultur & Leben</a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Beliebte Tags</h3>
+            <div class="tag-cloud">
+              <span class="tag">Ausbildung</span>
+              <span class="tag">Visum</span>
+              <span class="tag">Deutsch lernen</span>
+              <span class="tag">Bewerbung</span>
+              <span class="tag">IT</span>
+              <span class="tag">Engineering</span>
+              <span class="tag">Healthcare</span>
+            </div>
+          </div>
+
+          <div class="sidebar-widget newsletter">
+            <h3>Newsletter</h3>
+            <p>Erhalten Sie neue Artikel direkt in Ihr Postfach</p>
+            <form id="newsletterForm">
+              <input type="email" placeholder="Ihre E-Mail" required>
+              <button type="submit" class="btn btn-primary">Abonnieren</button>
+            </form>
+          </div>
+        </aside>
+
+        <div class="blog-content">
+          <div id="featuredPost" class="featured-post">
+            <!-- Featured post loaded by JavaScript -->
+          </div>
+
+          <div class="blog-grid" id="blogGrid">
+            <!-- Blog posts loaded by JavaScript -->
+            <div class="loading">Lade Artikel...</div>
+          </div>
+
+          <div class="pagination" id="pagination">
+            <!-- Pagination loaded by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dual Connect. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/blog.js"></script>
+</body>
+</html>

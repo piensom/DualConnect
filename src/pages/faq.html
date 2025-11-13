@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Häufige Fragen (FAQ) - Dual Connect</title>
+  <meta name="description" content="Antworten auf häufig gestellte Fragen über duale Ausbildung in Deutschland">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/faq.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <h1>Dual Connect</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Programme finden</a></li>
+        <li><a href="parents.html">Für Eltern</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container faq-container">
+    <div class="faq-header">
+      <h1>Häufig gestellte Fragen</h1>
+      <p>Finden Sie Antworten auf die wichtigsten Fragen rund um duale Ausbildung in Deutschland</p>
+
+      <div class="faq-search">
+        <input type="text" id="faqSearch" placeholder="Suchen Sie nach einem Thema...">
+        <button class="search-btn">🔍</button>
+      </div>
+    </div>
+
+    <div class="faq-content">
+      <aside class="faq-categories">
+        <h3>Kategorien</h3>
+        <ul>
+          <li><a href="#" class="category-link active" data-category="all">Alle anzeigen</a></li>
+          <li><a href="#" class="category-link" data-category="Basics">Grundlagen</a></li>
+          <li><a href="#" class="category-link" data-category="Requirements">Voraussetzungen</a></li>
+          <li><a href="#" class="category-link" data-category="Application">Bewerbung</a></li>
+          <li><a href="#" class="category-link" data-category="Visa">Visum</a></li>
+          <li><a href="#" class="category-link" data-category="Financial">Finanzen</a></li>
+          <li><a href="#" class="category-link" data-category="Living">Leben in Deutschland</a></li>
+        </ul>
+
+        <div class="language-selector">
+          <h4>Sprache</h4>
+          <select id="languageSelect">
+            <option value="de">Deutsch</option>
+            <option value="en">English</option>
+            <option value="tr">Türkçe</option>
+            <option value="ar">العربية</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </aside>
+
+      <div class="faq-list" id="faqList">
+        <!-- FAQ items populated by JavaScript -->
+        <div class="loading">Lade FAQs...</div>
+      </div>
+    </div>
+
+    <div class="faq-footer">
+      <div class="help-box">
+        <h3>Frage nicht gefunden?</h3>
+        <p>Kontaktieren Sie uns direkt für weitere Unterstützung</p>
+        <a href="contact.html" class="btn btn-primary">Kontakt aufnehmen</a>
+      </div>
+
+      <div class="resources-box">
+        <h3>Weitere Ressourcen</h3>
+        <ul>
+          <li><a href="glossary.html">📖 Glossar - Begriffe erklärt</a></li>
+          <li><a href="blog.html">📰 Blog - Neuigkeiten & Tipps</a></li>
+          <li><a href="stories.html">⭐ Erfolgsgeschichten</a></li>
+          <li><a href="parents.html">👨‍👩‍👧‍👦 Informationen für Eltern</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dual Connect. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/faq.js"></script>
+</body>
+</html>
