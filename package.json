@@ -15,6 +15,10 @@
     "migrate:down": "node backend/migrations/migrate.js down",
     "migrate:create": "node backend/migrations/migrate.js create",
     "seed": "node backend/scripts/seed.js",
+    "backup": "node backend/scripts/backup.js",
+    "backup:full": "node backend/scripts/backup.js backup --compress --s3",
+    "backup:restore": "node backend/scripts/backup.js restore",
+    "seo:generate": "node -e \"require('./backend/utils/seo').saveSitemap(); require('./backend/utils/seo').saveRobotsTxt()\"",
     "docker:build": "docker-compose -f docker-compose.full-stack.yml build",
     "docker:up": "docker-compose -f docker-compose.full-stack.yml up -d",
     "docker:down": "docker-compose -f docker-compose.full-stack.yml down",
@@ -38,7 +42,12 @@
     "compression": "^1.7.4",
     "xss": "^1.0.14",
     "redis": "^4.6.11",
-    "winston": "^3.11.0"
+    "winston": "^3.11.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "bull": "^4.12.0",
+    "@sentry/node": "^7.99.0",
+    "@sentry/profiling-node": "^1.3.3"
   },
   "devDependencies": {
     "jest": "^29.7.0",
