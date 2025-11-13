@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><title>Analytics</title><link rel="stylesheet" href="../../styles/main.css"><link rel="stylesheet" href="../../styles/admin.css"></head>
+<body>
+<header class="admin-header"><div class="admin-header-container"><div class="admin-logo"><h1>Dual Connect Admin</h1></div><div class="admin-user"><span>Admin</span><button class="btn-logout" onclick="logout()">Logout</button></div></div></header>
+<div class="admin-layout">
+<aside class="admin-sidebar"><nav class="admin-nav">
+<a href="dashboard.html" class="admin-nav-item"><span>📊</span>Dashboard</a>
+<a href="programs.html" class="admin-nav-item"><span>🎓</span>Programs</a>
+<a href="applications.html" class="admin-nav-item"><span>📝</span>Applications</a>
+<a href="users.html" class="admin-nav-item"><span>👥</span>Users</a>
+<a href="companies.html" class="admin-nav-item"><span>🏢</span>Companies</a>
+<a href="blog.html" class="admin-nav-item"><span>📰</span>Blog</a>
+<a href="faq.html" class="admin-nav-item"><span>❓</span>FAQs</a>
+<a href="stories.html" class="admin-nav-item"><span>⭐</span>Stories</a>
+<a href="analytics.html" class="admin-nav-item active"><span>📈</span>Analytics</a>
+<a href="settings.html" class="admin-nav-item"><span>⚙️</span>Settings</a>
+</nav></aside>
+<main class="admin-main">
+<h2>Analytics Dashboard</h2>
+<div class="stats-grid" style="margin: 2rem 0;">
+<div class="stat-card"><h3>1,234</h3><p>Page Views</p></div>
+<div class="stat-card"><h3>567</h3><p>Unique Visitors</p></div>
+<div class="stat-card"><h3>89</h3><p>Conversions</p></div>
+<div class="stat-card"><h3>12.5%</h3><p>Conversion Rate</p></div>
+</div>
+<div class="chart-card"><h3>Traffic Over Time</h3><canvas id="trafficChart" style="height:300px"></canvas></div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../../scripts/admin-analytics.js"></script>
+</body>
+</html>

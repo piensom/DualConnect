@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Dual Connect</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
+    .container { max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; padding: 30px; text-align: center; }
+    .header h1 { margin: 0; font-size: 28px; }
+    .content { padding: 30px; }
+    .content h2 { color: #1e3a8a; margin-top: 0; }
+    .cta-button { display: inline-block; background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; margin: 20px 0; }
+    .cta-button:hover { background: #2563eb; }
+    .footer { background: #f9fafb; padding: 20px; text-align: center; font-size: 14px; color: #6b7280; }
+    .features { display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0; }
+    .feature { flex: 1; min-width: 150px; padding: 15px; background: #f9fafb; border-radius: 6px; text-align: center; }
+    .feature-icon { font-size: 32px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎓 Welcome to Dual Connect!</h1>
+    </div>
+
+    <div class="content">
+      <h2>Hi {{firstName}},</h2>
+
+      <p>Welcome to <strong>Dual Connect</strong>! We're excited to have you join our community of students pursuing Ausbildung and Duales Studium programs in Germany.</p>
+
+      <p>Your account has been successfully created. Here's what you can do now:</p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🔍</div>
+          <strong>Browse Programs</strong>
+          <p style="font-size: 14px; margin: 5px 0 0;">Explore hundreds of programs from top companies</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📝</div>
+          <strong>Apply Directly</strong>
+          <p style="font-size: 14px; margin: 5px 0 0;">Submit applications with one click</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <strong>Track Progress</strong>
+          <p style="font-size: 14px; margin: 5px 0 0;">Monitor all your applications in one place</p>
+        </div>
+      </div>
+
+      <p style="text-align: center;">
+        <a href="{{dashboardUrl}}" class="cta-button">Go to Your Dashboard</a>
+      </p>
+
+      <p><strong>Next Steps:</strong></p>
+      <ol>
+        <li>Complete your profile to improve your application chances</li>
+        <li>Upload your CV and documents</li>
+        <li>Browse available programs and bookmark interesting ones</li>
+        <li>Submit your first application!</li>
+      </ol>
+
+      <p>If you have any questions, check out our <a href="{{faqUrl}}" style="color: #3b82f6;">FAQ page</a> or contact our support team.</p>
+
+      <p>Best regards,<br>
+      <strong>The Dual Connect Team</strong></p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 Dual Connect. All rights reserved.</p>
+      <p><a href="{{unsubscribeUrl}}" style="color: #6b7280;">Unsubscribe</a> | <a href="{{helpUrl}}" style="color: #6b7280;">Help Center</a></p>
+    </div>
+  </div>
+</body>
+</html>

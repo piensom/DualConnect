@@ -1,0 +1,8 @@
+{
+  "common": {"welcome": "Hoş geldiniz", "login": "Giriş Yap", "logout": "Çıkış Yap", "register": "Kayıt Ol", "search": "Ara", "filter": "Filtrele", "apply": "Başvur", "save": "Kaydet", "cancel": "İptal", "delete": "Sil", "edit": "Düzenle", "view": "Görüntüle", "loading": "Yükleniyor...", "error": "Hata", "success": "Başarılı"},
+  "nav": {"home": "Ana Sayfa", "programs": "Programlar", "companies": "Şirketler", "blog": "Blog", "faq": "SSS", "contact": "İletişim", "dashboard": "Panel"},
+  "auth": {"email": "E-posta", "password": "Şifre", "confirmPassword": "Şifreyi Onayla", "forgotPassword": "Şifremi Unuttum?", "noAccount": "Hesabınız yok mu?", "hasAccount": "Zaten hesabınız var mı?", "loginSuccess": "Giriş başarılı", "loginError": "Giriş başarısız", "registerSuccess": "Kayıt başarılı"},
+  "programs": {"title": "Programlar", "ausbildung": "Meslek Eğitimi", "dualesStudium": "İkili Eğitim Programı", "type": "Tür", "duration": "Süre", "location": "Konum", "requirements": "Gereksinimler", "benefits": "Avantajlar", "apply": "Şimdi Başvur"},
+  "dashboard": {"myApplications": "Başvurularım", "bookmarks": "Yer İşaretleri", "notifications": "Bildirimler", "profile": "Profil", "stats": "İstatistikler", "pending": "Beklemede", "approved": "Onaylandı", "rejected": "Reddedildi"},
+  "forms": {"firstName": "Ad", "lastName": "Soyad", "phone": "Telefon", "dateOfBirth": "Doğum Tarihi", "nationality": "Uyruk", "coverLetter": "Ön Yazı", "submit": "Gönder", "required": "Gerekli"}
+}

@@ -1,0 +1,70 @@
+{
+  "common": {
+    "welcome": "Willkommen",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "register": "Registrieren",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "apply": "Bewerben",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "view": "Ansehen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg"
+  },
+  "nav": {
+    "home": "Startseite",
+    "programs": "Programme",
+    "companies": "Unternehmen",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "dashboard": "Dashboard"
+  },
+  "auth": {
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Noch kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "loginSuccess": "Erfolgreich angemeldet",
+    "loginError": "Anmeldung fehlgeschlagen",
+    "registerSuccess": "Erfolgreich registriert"
+  },
+  "programs": {
+    "title": "Programme",
+    "ausbildung": "Ausbildung",
+    "dualesStudium": "Duales Studium",
+    "type": "Typ",
+    "duration": "Dauer",
+    "location": "Standort",
+    "requirements": "Anforderungen",
+    "benefits": "Vorteile",
+    "apply": "Jetzt bewerben"
+  },
+  "dashboard": {
+    "myApplications": "Meine Bewerbungen",
+    "bookmarks": "Lesezeichen",
+    "notifications": "Benachrichtigungen",
+    "profile": "Profil",
+    "stats": "Statistiken",
+    "pending": "Ausstehend",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt"
+  },
+  "forms": {
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "phone": "Telefon",
+    "dateOfBirth": "Geburtsdatum",
+    "nationality": "Staatsangehörigkeit",
+    "coverLetter": "Anschreiben",
+    "submit": "Absenden",
+    "required": "Erforderlich"
+  }
+}

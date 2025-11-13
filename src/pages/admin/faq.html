@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><title>FAQ Management</title><link rel="stylesheet" href="../../styles/main.css"><link rel="stylesheet" href="../../styles/admin.css"></head>
+<body>
+<header class="admin-header"><div class="admin-header-container"><div class="admin-logo"><h1>Dual Connect Admin</h1></div><div class="admin-user"><span id="adminName">Admin</span><button class="btn-logout" onclick="logout()">Logout</button></div></div></header>
+<div class="admin-layout">
+<aside class="admin-sidebar"><nav class="admin-nav">
+<a href="dashboard.html" class="admin-nav-item"><span class="nav-icon">📊</span>Dashboard</a>
+<a href="programs.html" class="admin-nav-item"><span class="nav-icon">🎓</span>Programs</a>
+<a href="applications.html" class="admin-nav-item"><span class="nav-icon">📝</span>Applications</a>
+<a href="users.html" class="admin-nav-item"><span class="nav-icon">👥</span>Users</a>
+<a href="companies.html" class="admin-nav-item"><span class="nav-icon">🏢</span>Companies</a>
+<a href="blog.html" class="admin-nav-item"><span class="nav-icon">📰</span>Blog</a>
+<a href="faq.html" class="admin-nav-item active"><span class="nav-icon">❓</span>FAQs</a>
+<a href="stories.html" class="admin-nav-item"><span class="nav-icon">⭐</span>Stories</a>
+<a href="analytics.html" class="admin-nav-item"><span class="nav-icon">📈</span>Analytics</a>
+<a href="settings.html" class="admin-nav-item"><span class="nav-icon">⚙️</span>Settings</a>
+</nav></aside>
+<main class="admin-main">
+<div class="admin-header-section"><h2>FAQ Management</h2><button class="btn btn-primary" onclick="addFAQ()">➕ Add FAQ</button></div>
+<div class="data-table-container">
+<table class="data-table"><thead><tr><th>ID</th><th>Question</th><th>Category</th><th>Actions</th></tr></thead>
+<tbody id="faqTableBody"><tr><td colspan="4" class="loading">Loading...</td></tr></tbody></table>
+</div>
+</main>
+</div>
+<div id="toastContainer"></div>
+<script src="../../scripts/admin-faq.js"></script>
+</body>
+</html>

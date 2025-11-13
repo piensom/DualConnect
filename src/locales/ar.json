@@ -1,0 +1,8 @@
+{
+  "common": {"welcome": "مرحباً", "login": "تسجيل الدخول", "logout": "تسجيل الخروج", "register": "التسجيل", "search": "بحث", "filter": "تصفية", "apply": "تقديم", "save": "حفظ", "cancel": "إلغاء", "delete": "حذف", "edit": "تعديل", "view": "عرض", "loading": "جاري التحميل...", "error": "خطأ", "success": "نجح"},
+  "nav": {"home": "الرئيسية", "programs": "البرامج", "companies": "الشركات", "blog": "المدونة", "faq": "الأسئلة الشائعة", "contact": "اتصل بنا", "dashboard": "لوحة التحكم"},
+  "auth": {"email": "البريد الإلكتروني", "password": "كلمة المرور", "confirmPassword": "تأكيد كلمة المرور", "forgotPassword": "نسيت كلمة المرور؟", "noAccount": "ليس لديك حساب؟", "hasAccount": "هل لديك حساب بالفعل؟", "loginSuccess": "تم تسجيل الدخول بنجاح", "loginError": "فشل تسجيل الدخول", "registerSuccess": "تم التسجيل بنجاح"},
+  "programs": {"title": "البرامج", "ausbildung": "التدريب المهني", "dualesStudium": "برنامج الدراسة المزدوج", "type": "النوع", "duration": "المدة", "location": "الموقع", "requirements": "المتطلبات", "benefits": "الفوائد", "apply": "قدم الآن"},
+  "dashboard": {"myApplications": "طلباتي", "bookmarks": "الإشارات المرجعية", "notifications": "الإشعارات", "profile": "الملف الشخصي", "stats": "الإحصائيات", "pending": "قيد الانتظار", "approved": "موافق عليه", "rejected": "مرفوض"},
+  "forms": {"firstName": "الاسم الأول", "lastName": "اسم العائلة", "phone": "الهاتف", "dateOfBirth": "تاريخ الميلاد", "nationality": "الجنسية", "coverLetter": "رسالة تغطية", "submit": "إرسال", "required": "مطلوب"}
+}

@@ -1,0 +1,70 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "search": "Search",
+    "filter": "Filter",
+    "apply": "Apply",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "programs": "Programs",
+    "companies": "Companies",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "dashboard": "Dashboard"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "loginSuccess": "Login successful",
+    "loginError": "Login failed",
+    "registerSuccess": "Registration successful"
+  },
+  "programs": {
+    "title": "Programs",
+    "ausbildung": "Vocational Training",
+    "dualesStudium": "Dual Study Program",
+    "type": "Type",
+    "duration": "Duration",
+    "location": "Location",
+    "requirements": "Requirements",
+    "benefits": "Benefits",
+    "apply": "Apply Now"
+  },
+  "dashboard": {
+    "myApplications": "My Applications",
+    "bookmarks": "Bookmarks",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "stats": "Statistics",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected"
+  },
+  "forms": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "dateOfBirth": "Date of Birth",
+    "nationality": "Nationality",
+    "coverLetter": "Cover Letter",
+    "submit": "Submit",
+    "required": "Required"
+  }
+}

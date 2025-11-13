@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Applications - Admin - Dual Connect</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+<body>
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <div class="admin-logo">
+        <h1>Dual Connect Admin</h1>
+      </div>
+      <div class="admin-user">
+        <span id="adminName">Admin User</span>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Layout -->
+  <div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <nav class="admin-nav">
+        <a href="dashboard.html" class="admin-nav-item">
+          <span class="nav-icon">📊</span>
+          Dashboard
+        </a>
+        <a href="programs.html" class="admin-nav-item">
+          <span class="nav-icon">🎓</span>
+          Programs
+          <span class="nav-badge" id="programsCount">0</span>
+        </a>
+        <a href="applications.html" class="admin-nav-item active">
+          <span class="nav-icon">📝</span>
+          Applications
+          <span class="nav-badge pending" id="pendingApps">0</span>
+        </a>
+        <a href="users.html" class="admin-nav-item">
+          <span class="nav-icon">👥</span>
+          Users
+          <span class="nav-badge" id="usersCount">0</span>
+        </a>
+        <a href="companies.html" class="admin-nav-item">
+          <span class="nav-icon">🏢</span>
+          Companies
+          <span class="nav-badge" id="companiesCount">0</span>
+        </a>
+        <a href="blog.html" class="admin-nav-item">
+          <span class="nav-icon">📰</span>
+          Blog Posts
+          <span class="nav-badge" id="postsCount">0</span>
+        </a>
+        <a href="faq.html" class="admin-nav-item">
+          <span class="nav-icon">❓</span>
+          FAQs
+          <span class="nav-badge" id="faqCount">0</span>
+        </a>
+        <a href="stories.html" class="admin-nav-item">
+          <span class="nav-icon">⭐</span>
+          Success Stories
+          <span class="nav-badge" id="storiesCount">0</span>
+        </a>
+        <a href="analytics.html" class="admin-nav-item">
+          <span class="nav-icon">📈</span>
+          Analytics
+        </a>
+        <a href="settings.html" class="admin-nav-item">
+          <span class="nav-icon">⚙️</span>
+          Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-header-section">
+        <h2>Manage Applications</h2>
+        <div class="admin-actions">
+          <button class="btn btn-secondary" onclick="exportApplications()">
+            <span>📥</span> Export CSV
+          </button>
+          <button class="btn btn-primary" onclick="refreshData()">
+            <span>🔄</span> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Overview -->
+      <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem;">
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-content">
+            <h3 id="totalApplications">0</h3>
+            <p>Total Applications</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-content">
+            <h3 id="pendingCount">0</h3>
+            <p>Pending Review</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-content">
+            <h3 id="approvedCount">0</h3>
+            <p>Approved</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">❌</div>
+          <div class="stat-content">
+            <h3 id="rejectedCount">0</h3>
+            <p>Rejected</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-section">
+        <div class="form-container">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="filterStatus">Status</label>
+              <select id="filterStatus" onchange="filterApplications()">
+                <option value="">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="under_review">Under Review</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="withdrawn">Withdrawn</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filterProgram">Program</label>
+              <select id="filterProgram" onchange="filterApplications()">
+                <option value="">All Programs</option>
+                <!-- Programs loaded dynamically -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filterDateFrom">Date From</label>
+              <input type="date" id="filterDateFrom" onchange="filterApplications()">
+            </div>
+            <div class="form-group">
+              <label for="filterDateTo">Date To</label>
+              <input type="date" id="filterDateTo" onchange="filterApplications()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bulk Actions -->
+      <div class="bulk-actions" id="bulkActions" style="display: none; margin-bottom: 1rem; padding: 1rem; background: #f9fafb; border-radius: 8px;">
+        <span id="selectedCount">0 selected</span>
+        <div style="display: flex; gap: 0.5rem; margin-left: auto;">
+          <button class="btn btn-secondary" onclick="bulkUpdateStatus('under_review')">Mark Under Review</button>
+          <button class="btn btn-primary" onclick="bulkUpdateStatus('approved')">Approve Selected</button>
+          <button class="btn" style="background: #ef4444; color: white;" onclick="bulkUpdateStatus('rejected')">Reject Selected</button>
+        </div>
+      </div>
+
+      <!-- Applications Table -->
+      <div class="data-table-container">
+        <div class="table-header">
+          <h3>Applications List</h3>
+          <div class="table-actions">
+            <div class="search-box">
+              <input type="text" id="searchApplications" placeholder="Search by name or email..." oninput="searchApplications()">
+            </div>
+          </div>
+        </div>
+
+        <table class="data-table" id="applicationsTable">
+          <thead>
+            <tr>
+              <th style="width: 40px;">
+                <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+              </th>
+              <th>ID</th>
+              <th>Applicant</th>
+              <th>Email</th>
+              <th>Program</th>
+              <th>Applied Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="applicationsTableBody">
+            <tr>
+              <td colspan="8" class="loading">Loading applications...</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="table-pagination">
+          <div class="pagination-info" id="paginationInfo">
+            Showing 0 of 0 applications
+          </div>
+          <div class="pagination-controls" id="paginationControls">
+            <!-- Pagination buttons will be added here -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- View Application Modal -->
+  <div id="applicationModal" class="modal" style="display: none;">
+    <div class="modal-content" style="max-width: 900px; padding: 0;">
+      <div class="modal-body" style="padding: 2rem;">
+        <div class="card-header" style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+          <h3 id="modalTitle">Application Details</h3>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+
+        <div id="applicationDetails" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+          <!-- Left Column: Application Info -->
+          <div>
+            <div class="detail-section">
+              <h4>Applicant Information</h4>
+              <div class="detail-grid">
+                <div class="detail-item">
+                  <label>Full Name:</label>
+                  <span id="detailName">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Email:</label>
+                  <span id="detailEmail">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Phone:</label>
+                  <span id="detailPhone">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Date of Birth:</label>
+                  <span id="detailDOB">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Nationality:</label>
+                  <span id="detailNationality">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Current Location:</label>
+                  <span id="detailLocation">-</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Program Details</h4>
+              <div class="detail-grid">
+                <div class="detail-item">
+                  <label>Program:</label>
+                  <span id="detailProgram">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Company:</label>
+                  <span id="detailCompany">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Location:</label>
+                  <span id="detailProgramLocation">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Applied Date:</label>
+                  <span id="detailAppliedDate">-</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Education & Experience</h4>
+              <div class="detail-grid">
+                <div class="detail-item">
+                  <label>Highest Education:</label>
+                  <span id="detailEducation">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>Field of Study:</label>
+                  <span id="detailField">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>German Level:</label>
+                  <span id="detailGerman">-</span>
+                </div>
+                <div class="detail-item">
+                  <label>English Level:</label>
+                  <span id="detailEnglish">-</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Cover Letter</h4>
+              <p id="detailCoverLetter" style="white-space: pre-wrap; color: #374151;">-</p>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Documents</h4>
+              <div id="detailDocuments">
+                <p style="color: #6b7280;">No documents uploaded</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Actions & Status -->
+          <div>
+            <div class="detail-section">
+              <h4>Current Status</h4>
+              <div style="margin: 1rem 0;">
+                <span id="detailStatus" class="table-badge">Pending</span>
+              </div>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Update Status</h4>
+              <select id="statusSelect" class="form-control" style="width: 100%; margin-bottom: 1rem;">
+                <option value="pending">Pending</option>
+                <option value="under_review">Under Review</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="withdrawn">Withdrawn</option>
+              </select>
+              <button class="btn btn-primary" style="width: 100%;" onclick="updateApplicationStatus()">
+                Update Status
+              </button>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Admin Notes</h4>
+              <textarea id="adminNotes" rows="5" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.875rem;"></textarea>
+              <button class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;" onclick="saveAdminNotes()">
+                Save Notes
+              </button>
+            </div>
+
+            <div class="detail-section" style="margin-top: 2rem;">
+              <h4>Actions</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <button class="btn btn-secondary" onclick="downloadCV()">
+                  📄 Download CV
+                </button>
+                <button class="btn btn-secondary" onclick="sendEmail()">
+                  ✉️ Send Email
+                </button>
+                <button class="btn" style="background: #ef4444; color: white;" onclick="deleteApplication()">
+                  🗑️ Delete Application
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/toast.js"></script>
+  <script src="../../scripts/admin-applications.js"></script>
+
+  <style>
+    .detail-section h4 {
+      color: #1e3a8a;
+      margin: 0 0 1rem;
+      font-size: 1.125rem;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .detail-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1rem;
+    }
+
+    .detail-item label {
+      color: #6b7280;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .detail-item span {
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    .bulk-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .bulk-actions span {
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+  </style>
+</body>
+</html>

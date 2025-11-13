@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Users - Admin - Dual Connect</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <div class="admin-logo"><h1>Dual Connect Admin</h1></div>
+      <div class="admin-user">
+        <span id="adminName">Admin User</span>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <nav class="admin-nav">
+        <a href="dashboard.html" class="admin-nav-item"><span class="nav-icon">📊</span>Dashboard</a>
+        <a href="programs.html" class="admin-nav-item"><span class="nav-icon">🎓</span>Programs<span class="nav-badge" id="programsCount">0</span></a>
+        <a href="applications.html" class="admin-nav-item"><span class="nav-icon">📝</span>Applications<span class="nav-badge pending" id="pendingApps">0</span></a>
+        <a href="users.html" class="admin-nav-item active"><span class="nav-icon">👥</span>Users<span class="nav-badge" id="usersCount">0</span></a>
+        <a href="companies.html" class="admin-nav-item"><span class="nav-icon">🏢</span>Companies<span class="nav-badge" id="companiesCount">0</span></a>
+        <a href="blog.html" class="admin-nav-item"><span class="nav-icon">📰</span>Blog Posts<span class="nav-badge" id="postsCount">0</span></a>
+        <a href="faq.html" class="admin-nav-item"><span class="nav-icon">❓</span>FAQs<span class="nav-badge" id="faqCount">0</span></a>
+        <a href="stories.html" class="admin-nav-item"><span class="nav-icon">⭐</span>Success Stories<span class="nav-badge" id="storiesCount">0</span></a>
+        <a href="analytics.html" class="admin-nav-item"><span class="nav-icon">📈</span>Analytics</a>
+        <a href="settings.html" class="admin-nav-item"><span class="nav-icon">⚙️</span>Settings</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-header-section">
+        <h2>Manage Users</h2>
+        <div class="admin-actions">
+          <button class="btn btn-secondary" onclick="exportUsers()"><span>📥</span> Export CSV</button>
+          <button class="btn btn-primary" onclick="refreshData()"><span>🔄</span> Refresh</button>
+        </div>
+      </div>
+
+      <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem;">
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-content"><h3 id="totalUsers">0</h3><p>Total Users</p></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-content"><h3 id="activeUsers">0</h3><p>Active Users</p></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🆕</div>
+          <div class="stat-content"><h3 id="newUsersToday">0</h3><p>New Today</p></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔒</div>
+          <div class="stat-content"><h3 id="adminUsers">0</h3><p>Admin Users</p></div>
+        </div>
+      </div>
+
+      <div class="filters-section">
+        <div class="form-container">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="filterRole">Role</label>
+              <select id="filterRole" onchange="filterUsers()">
+                <option value="">All Roles</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filterStatus">Status</label>
+              <select id="filterStatus" onchange="filterUsers()">
+                <option value="">All Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filterDateFrom">Registered From</label>
+              <input type="date" id="filterDateFrom" onchange="filterUsers()">
+            </div>
+            <div class="form-group">
+              <label for="filterDateTo">Registered To</label>
+              <input type="date" id="filterDateTo" onchange="filterUsers()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="data-table-container">
+        <div class="table-header">
+          <h3>Users List</h3>
+          <div class="table-actions">
+            <div class="search-box">
+              <input type="text" id="searchUsers" placeholder="Search users..." oninput="searchUsers()">
+            </div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Registered</th>
+              <th>Last Login</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <tr><td colspan="8" class="loading">Loading users...</td></tr>
+          </tbody>
+        </table>
+
+        <div class="table-pagination">
+          <div class="pagination-info" id="paginationInfo">Showing 0 of 0 users</div>
+          <div class="pagination-controls" id="paginationControls"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toastContainer"></div>
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/toast.js"></script>
+  <script src="../../scripts/admin-users.js"></script>
+</body>
+</html>

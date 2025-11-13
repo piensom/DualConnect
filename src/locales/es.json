@@ -1,0 +1,8 @@
+{
+  "common": {"welcome": "Bienvenido", "login": "Iniciar Sesión", "logout": "Cerrar Sesión", "register": "Registrarse", "search": "Buscar", "filter": "Filtrar", "apply": "Aplicar", "save": "Guardar", "cancel": "Cancelar", "delete": "Eliminar", "edit": "Editar", "view": "Ver", "loading": "Cargando...", "error": "Error", "success": "Éxito"},
+  "nav": {"home": "Inicio", "programs": "Programas", "companies": "Empresas", "blog": "Blog", "faq": "Preguntas Frecuentes", "contact": "Contacto", "dashboard": "Panel"},
+  "auth": {"email": "Correo Electrónico", "password": "Contraseña", "confirmPassword": "Confirmar Contraseña", "forgotPassword": "¿Olvidó su contraseña?", "noAccount": "¿No tiene una cuenta?", "hasAccount": "¿Ya tiene una cuenta?", "loginSuccess": "Inicio de sesión exitoso", "loginError": "Error al iniciar sesión", "registerSuccess": "Registro exitoso"},
+  "programs": {"title": "Programas", "ausbildung": "Formación Profesional", "dualesStudium": "Programa de Estudios Dual", "type": "Tipo", "duration": "Duración", "location": "Ubicación", "requirements": "Requisitos", "benefits": "Beneficios", "apply": "Aplicar Ahora"},
+  "dashboard": {"myApplications": "Mis Solicitudes", "bookmarks": "Marcadores", "notifications": "Notificaciones", "profile": "Perfil", "stats": "Estadísticas", "pending": "Pendiente", "approved": "Aprobado", "rejected": "Rechazado"},
+  "forms": {"firstName": "Nombre", "lastName": "Apellido", "phone": "Teléfono", "dateOfBirth": "Fecha de Nacimiento", "nationality": "Nacionalidad", "coverLetter": "Carta de Presentación", "submit": "Enviar", "required": "Requerido"}
+}
