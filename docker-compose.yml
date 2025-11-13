@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dualconnect-web
+    ports:
+      - "8080:80"
+    volumes:
+      # Mount source for development (optional - comment out for production)
+      - ./src:/usr/share/nginx/html:ro
+      - ./database/sample-data:/usr/share/nginx/html/database/sample-data:ro
+    restart: unless-stopped
+    networks:
+      - dualconnect-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+networks:
+  dualconnect-network:
+    driver: bridge
+
+# Optional: Add volumes for persistence
+# volumes:
+#   nginx_logs:

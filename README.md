@@ -12,6 +12,34 @@ This training project aims to:
 - Connect families with relevant stakeholders (IHK, universities, companies)
 - Offer parent-friendly guidance in multiple languages
 
+## 🐳 Quick Start with Docker (Recommended)
+
+The easiest way to run Dual Connect locally:
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd DualConnect
+
+# Start with Docker Compose
+docker-compose up
+
+# Open browser to http://localhost:8080
+```
+
+**That's it!** The full application will be running with all features.
+
+For detailed Docker instructions, see [DOCKER.md](DOCKER.md)
+
+### Alternative: Open Locally Without Docker
+```bash
+# Navigate to source folder
+cd src/pages
+
+# Open index.html in your browser
+# Note: Some features require a web server for JSON loading
+```
+
 ## 🏗️ Project Structure
 
 ```
@@ -77,29 +105,42 @@ DualConnect/
 ## 🛠️ Technology Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (vanilla)
+- **Server**: nginx (Alpine Linux)
+- **Container**: Docker + Docker Compose
 - **Data Format**: JSON for flexibility and easy integration
 - **Design Tools**: Figma-compatible wireframes, ASCII diagrams
 - **Documentation**: Markdown for portability
 
 ## 📖 Getting Started
 
-### View the Documentation
+### 1. Run with Docker (Recommended)
+```bash
+docker-compose up
+# Access at http://localhost:8080
+```
+See [DOCKER.md](DOCKER.md) for full Docker documentation.
+
+### 2. View the Documentation
 ```bash
 cd docs/
 # Read project-brief.md for overview
 # Review swot-analysis.md for market analysis
 ```
 
-### Explore the Database Schema
+### 3. Explore the Database Schema
 ```bash
 cd database/schema/
 # Review table definitions and relationships
 ```
 
-### Run the Prototype
+### 4. Browse the Website Files
 ```bash
-cd src/
-# Open index.html in a web browser
+cd src/pages/
+# index.html - Landing page
+# search.html - Program search with filters
+# program-detail.html - Detailed program view
+# parents.html - Parent information (simple language)
+# contact.html - Advisor directory
 ```
 
 ## 🎓 Educational Context
