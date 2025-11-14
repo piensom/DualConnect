@@ -24,6 +24,9 @@ async function seed() {
     // Read additional data files
     let additionalCompaniesData = [];
     let additionalProgramsData = [];
+    let moreCompaniesData = [];
+    let moreProgramsData = [];
+
     try {
       additionalCompaniesData = JSON.parse(
         fs.readFileSync(path.join(__dirname, '../../database/sample-data/additional-companies.json'), 'utf8')
@@ -31,14 +34,28 @@ async function seed() {
       additionalProgramsData = JSON.parse(
         fs.readFileSync(path.join(__dirname, '../../database/sample-data/additional-programs.json'), 'utf8')
       );
-      console.log(`📥 Found ${additionalCompaniesData.length} additional companies and ${additionalProgramsData.length} additional programs\n`);
+      console.log(`📥 Found ${additionalCompaniesData.length} additional companies and ${additionalProgramsData.length} additional programs`);
     } catch (err) {
-      console.log('ℹ️  No additional data files found, using base data only\n');
+      console.log('ℹ️  No additional data files found');
     }
 
-    // Merge data
-    const allCompanies = [...companiesData, ...additionalCompaniesData];
-    const allPrograms = [...programsData, ...additionalProgramsData];
+    try {
+      moreCompaniesData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/more-companies.json'), 'utf8')
+      );
+      moreProgramsData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/more-programs.json'), 'utf8')
+      );
+      console.log(`📥 Found ${moreCompaniesData.length} more companies and ${moreProgramsData.length} more programs`);
+    } catch (err) {
+      console.log('ℹ️  No more data files found');
+    }
+
+    // Merge all data
+    const allCompanies = [...companiesData, ...additionalCompaniesData, ...moreCompaniesData];
+    const allPrograms = [...programsData, ...additionalProgramsData, ...moreProgramsData];
+
+    console.log(`\n📊 Total: ${allCompanies.length} companies and ${allPrograms.length} programs\n`);
 
     // Seed companies
     console.log('📦 Seeding companies...');
