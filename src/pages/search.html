@@ -220,7 +220,7 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="../scripts/main.js?v=4"></script>
+    <script src="../scripts/main.js?v=5"></script>
     <script>
         let allPrograms = [];
         let filteredPrograms = [];
@@ -315,6 +315,7 @@
 
         // Display programs
         function displayPrograms(programsToShow) {
+            console.log('displayPrograms called with', programsToShow.length, 'programs');
             const programsList = document.getElementById('programsList');
             const noResults = document.getElementById('noResults');
             const resultsCount = document.getElementById('resultsCount');
@@ -323,13 +324,20 @@
                 programsList.innerHTML = '';
                 noResults.style.display = 'block';
                 resultsCount.textContent = 'Keine Programme gefunden';
+                console.log('No programs to display');
             } else {
                 noResults.style.display = 'none';
                 resultsCount.textContent = `${programsToShow.length} Programme gefunden`;
 
-                programsList.innerHTML = programsToShow.map(program =>
-                    DualConnect.createProgramCard(program)
-                ).join('');
+                console.log('Creating program cards...');
+                const cards = programsToShow.map(program => {
+                    const card = DualConnect.createProgramCard(program);
+                    if (!card) console.error('Failed to create card for program:', program);
+                    return card;
+                }).filter(card => card);
+
+                console.log('Created', cards.length, 'cards');
+                programsList.innerHTML = cards.join('');
             }
         }
 

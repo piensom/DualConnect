@@ -38,6 +38,8 @@ async function loadData() {
         }
 
         console.log(`Data loaded successfully: ${programs.length} programs, ${companies.length} companies`);
+        console.log('First program:', programs[0]);
+        console.log('First company:', companies[0]);
         return true;
     } catch (error) {
         console.error('Error loading data:', error);
