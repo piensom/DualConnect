@@ -166,6 +166,12 @@ async function seed() {
     // Seed contact persons
     console.log('👥 Seeding contact persons...');
     for (const contact of contactsData) {
+      // Convert languages_spoken to array if it's a string
+      let languages = contact.languages_spoken;
+      if (typeof languages === 'string') {
+        languages = languages.split(',').map(lang => lang.trim());
+      }
+
       await pool.query(
         `INSERT INTO contact_persons (contact_id, first_name, last_name, position, email,
          phone, languages_spoken, specialization, company_id, is_available)
@@ -174,7 +180,7 @@ async function seed() {
         [
           contact.contact_id, contact.first_name, contact.last_name,
           contact.position || 'Program Advisor', contact.email, contact.phone,
-          contact.languages_spoken, contact.specialization, contact.company_id
+          languages, contact.specialization, contact.company_id
         ]
       );
     }
