@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>DualConnect - Kontakt Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c5282; }
+        h2 { color: #00897b; margin-top: 0; }
+        .contact-card {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #00897b;
+        }
+        .success { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        .email-link { color: #00897b; text-decoration: none; }
+        .email-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>🧪 DualConnect Kontaktherstellung - Test</h1>
+
+    <div class="test-section">
+        <h2>✅ Test 1: Firmen-Kontakte</h2>
+        <div id="company-test"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Test 2: IHK-Kontakte</h2>
+        <div id="ihk-test"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Test 3: Förderprogramm-Kontakte</h2>
+        <div id="funding-test"></div>
+    </div>
+
+    <script>
+        // Test 1: Load company contacts
+        async function testCompanyContacts() {
+            const testDiv = document.getElementById('company-test');
+            try {
+                const response = await fetch('/database/sample-data/contact_persons.json');
+                const contacts = await response.json();
+
+                const companyContacts = contacts.filter(c => c.organization_type === 'Company');
+
+                testDiv.innerHTML = `
+                    <p class="success">✓ ${companyContacts.length} Firmen-Kontakte gefunden</p>
+                    <p><strong>Beispiel:</strong></p>
+                    <div class="contact-card">
+                        <strong>${companyContacts[0].first_name} ${companyContacts[0].last_name}</strong><br>
+                        Position: ${companyContacts[0].role}<br>
+                        Email: <a href="mailto:${companyContacts[0].email}" class="email-link">${companyContacts[0].email}</a><br>
+                        Telefon: ${companyContacts[0].phone}<br>
+                        Sprachen: ${companyContacts[0].languages_spoken}<br>
+                        Spezialisierung: ${companyContacts[0].specialization}
+                    </div>
+                `;
+            } catch (e) {
+                testDiv.innerHTML = `<p class="error">✗ Fehler: ${e.message}</p>`;
+            }
+        }
+
+        // Test 2: Load IHK contacts
+        async function testIHKContacts() {
+            const testDiv = document.getElementById('ihk-test');
+            try {
+                const response = await fetch('/database/sample-data/contact_persons.json');
+                const contacts = await response.json();
+
+                const ihkContacts = contacts.filter(c => c.organization_type === 'IHK');
+
+                if (ihkContacts.length > 0) {
+                    testDiv.innerHTML = `
+                        <p class="success">✓ ${ihkContacts.length} IHK-Kontakt(e) gefunden</p>
+                        <p><strong>Details:</strong></p>
+                        <div class="contact-card">
+                            <strong>${ihkContacts[0].first_name} ${ihkContacts[0].last_name}</strong><br>
+                            Position: ${ihkContacts[0].role}<br>
+                            Organisation: ${ihkContacts[0].organization_type}<br>
+                            Email: <a href="mailto:${ihkContacts[0].email}" class="email-link">${ihkContacts[0].email}</a><br>
+                            Telefon: ${ihkContacts[0].phone}<br>
+                            Bürozeiten: ${ihkContacts[0].office_hours}<br>
+                            Sprachen: ${ihkContacts[0].languages_spoken}<br>
+                            <strong>Spezialisierung:</strong> ${ihkContacts[0].specialization}
+                        </div>
+                    `;
+                } else {
+                    testDiv.innerHTML = `<p class="error">✗ Keine IHK-Kontakte gefunden</p>`;
+                }
+            } catch (e) {
+                testDiv.innerHTML = `<p class="error">✗ Fehler: ${e.message}</p>`;
+            }
+        }
+
+        // Test 3: Load funding options
+        async function testFundingContacts() {
+            const testDiv = document.getElementById('funding-test');
+            try {
+                const response = await fetch('/database/sample-data/funding_options.json');
+                const funding = await response.json();
+
+                // Get different funding types
+                const bafoeg = funding.find(f => f.funding_type === 'BAföG');
+                const stipendium = funding.find(f => f.funding_type === 'Stipendium');
+
+                testDiv.innerHTML = `
+                    <p class="success">✓ ${funding.length} Förderprogramme gefunden</p>
+                    <p><strong>Beispiele:</strong></p>
+
+                    <div class="contact-card">
+                        <strong>${bafoeg.funding_name}</strong><br>
+                        Anbieter: ${bafoeg.provider}<br>
+                        Typ: ${bafoeg.funding_type}<br>
+                        Betrag: ${bafoeg.amount_euro} €/Monat<br>
+                        Website: <a href="${bafoeg.website_url}" class="email-link" target="_blank">${bafoeg.website_url}</a><br>
+                        Kontakt: <a href="mailto:${bafoeg.contact_email}" class="email-link">${bafoeg.contact_email}</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <strong>${stipendium.funding_name}</strong><br>
+                        Anbieter: ${stipendium.provider}<br>
+                        Typ: ${stipendium.funding_type}<br>
+                        Betrag: ${stipendium.amount_euro} €/Monat<br>
+                        Website: <a href="${stipendium.website_url}" class="email-link" target="_blank">${stipendium.website_url}</a><br>
+                        Kontakt: <a href="mailto:${stipendium.contact_email}" class="email-link">${stipendium.contact_email}</a>
+                    </div>
+                `;
+            } catch (e) {
+                testDiv.innerHTML = `<p class="error">✗ Fehler: ${e.message}</p>`;
+            }
+        }
+
+        // Run all tests
+        testCompanyContacts();
+        testIHKContacts();
+        testFundingContacts();
+    </script>
+</body>
+</html>
