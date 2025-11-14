@@ -78,14 +78,8 @@
                     <div class="filter-group">
                         <label class="filter-label">Stadt / Location</label>
                         <select id="filterLocation" class="filter-select">
-                            <option value="all">Alle Städte</option>
-                            <option value="Berlin">Berlin</option>
-                            <option value="München">München</option>
-                            <option value="Hamburg">Hamburg</option>
-                            <option value="Frankfurt">Frankfurt</option>
-                            <option value="Stuttgart">Stuttgart</option>
-                            <option value="Walldorf">Walldorf</option>
-                            <option value="Wolfsburg">Wolfsburg</option>
+                            <option value="all">Alle Städte / All Cities</option>
+                            <!-- Cities will be populated dynamically -->
                         </select>
                     </div>
 
@@ -226,10 +220,54 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="../scripts/main.js?v=3"></script>
+    <script src="../scripts/main.js?v=4"></script>
     <script>
         let allPrograms = [];
         let filteredPrograms = [];
+
+        // Populate city filter dynamically grouped by country
+        function populateCityFilter() {
+            const companies = window.DualConnect.companies;
+
+            // Group cities by country
+            const citiesByCountry = {};
+            companies.forEach(company => {
+                if (company.city && company.country) {
+                    if (!citiesByCountry[company.country]) {
+                        citiesByCountry[company.country] = new Set();
+                    }
+                    citiesByCountry[company.country].add(company.city);
+                }
+            });
+
+            const filterLocation = document.getElementById('filterLocation');
+
+            // Keep the "All Cities" option
+            filterLocation.innerHTML = '<option value="all">Alle Städte / All Cities</option>';
+
+            // Sort countries (Germany first, then alphabetically)
+            const sortedCountries = Object.keys(citiesByCountry).sort((a, b) => {
+                if (a === 'Germany') return -1;
+                if (b === 'Germany') return 1;
+                return a.localeCompare(b);
+            });
+
+            // Add cities grouped by country
+            sortedCountries.forEach(country => {
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = country;
+
+                const cities = Array.from(citiesByCountry[country]).sort();
+                cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    optgroup.appendChild(option);
+                });
+
+                filterLocation.appendChild(optgroup);
+            });
+        }
 
         // Initialize page
         async function initSearchPage() {
@@ -237,6 +275,9 @@
 
             if (loaded) {
                 allPrograms = window.DualConnect.programs;
+
+                // Populate city filter with all cities from database
+                populateCityFilter();
 
                 // Apply initial filters from URL
                 applyFiltersFromURL();
