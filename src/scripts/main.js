@@ -10,21 +10,34 @@ let requirements = [];
 // Initialize data loading
 async function loadData() {
     try {
-        const [programsRes, companiesRes, contactsRes, fundingRes, requirementsRes] = await Promise.all([
-            fetch('../../database/sample-data/programs.json'),
-            fetch('../../database/sample-data/companies.json'),
-            fetch('../../database/sample-data/contact_persons.json'),
-            fetch('../../database/sample-data/funding_options.json'),
-            fetch('../../database/sample-data/requirements.json')
+        const API_URL = 'http://localhost:3000/api';
+
+        const [programsRes, companiesRes] = await Promise.all([
+            fetch(`${API_URL}/programs?limit=200`),
+            fetch(`${API_URL}/companies?limit=200`)
         ]);
 
-        programs = await programsRes.json();
-        companies = await companiesRes.json();
-        contacts = await contactsRes.json();
-        funding = await fundingRes.json();
-        requirements = await requirementsRes.json();
+        const programsData = await programsRes.json();
+        const companiesData = await companiesRes.json();
 
-        console.log('Data loaded successfully');
+        programs = programsData.programs || programsData;
+        companies = companiesData.companies || companiesData;
+
+        // For backward compatibility, still try to load contacts, funding, requirements
+        try {
+            const [contactsRes, fundingRes, requirementsRes] = await Promise.all([
+                fetch('../../database/sample-data/contact_persons.json'),
+                fetch('../../database/sample-data/funding_options.json'),
+                fetch('../../database/sample-data/requirements.json')
+            ]);
+            contacts = await contactsRes.json();
+            funding = await fundingRes.json();
+            requirements = await requirementsRes.json();
+        } catch (err) {
+            console.log('Optional data not loaded:', err.message);
+        }
+
+        console.log(`Data loaded successfully: ${programs.length} programs, ${companies.length} companies`);
         return true;
     } catch (error) {
         console.error('Error loading data:', error);

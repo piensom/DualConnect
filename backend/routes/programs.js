@@ -14,7 +14,7 @@ router.get('/', optionalAuth, async (req, res) => {
       search,
       sortBy = 'created_at',
       sortOrder = 'DESC',
-      limit = 50,
+      limit = 200,
       offset = 0
     } = req.query;
 

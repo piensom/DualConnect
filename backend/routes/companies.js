@@ -5,7 +5,7 @@ const pool = require('../config/database');
 // Get all companies
 router.get('/', async (req, res) => {
   try {
-    const { city, industry, limit = 50, offset = 0 } = req.query;
+    const { city, industry, limit = 200, offset = 0 } = req.query;
 
     let query = `
       SELECT c.*,
