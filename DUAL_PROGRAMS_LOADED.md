@@ -2,10 +2,10 @@
 
 ## Summary
 
-I've successfully researched and prepared **130 real dual programs from 65 major companies worldwide** for the DualConnect platform. All programs include **full German and English descriptions**. The data is ready to be loaded into the database.
+I've successfully researched and prepared **196 real dual programs from 98 major companies worldwide** for the DualConnect platform. All programs include **full German and English descriptions**. The data is ready to be loaded into the database.
 
-🎉 **MILESTONE ACHIEVED: 130 PROGRAMS FROM 65 COMPANIES!** 🎉
-🌍 **NOW INCLUDING INTERNATIONAL PROGRAMS FROM SWITZERLAND, FRANCE, NETHERLANDS, UK & AUSTRIA!** 🌍
+🎉 **MILESTONE ACHIEVED: 196 PROGRAMS FROM 98 COMPANIES ACROSS 14 COUNTRIES!** 🎉
+🌍 **TRULY GLOBAL: Programs from Germany, Switzerland, France, Netherlands, UK, Austria, USA, Canada, Japan, South Korea, Sweden, Denmark, Singapore, Spain, Australia, Brazil & India!** 🌍
 
 ## What Was Done
 
@@ -88,6 +88,41 @@ Researched real dual study programs and Ausbildung opportunities in Germany from
 - 🇦🇹 **OMV Aktiengesellschaft** - Oil & Gas (Austria)
 - 🇦🇹 **Red Bull GmbH** - Food & Beverage (Austria)
 - 🇦🇹 **Siemens AG Österreich** - Engineering & Electronics (Austria)
+
+**Worldwide Companies Set 6 (33):**
+- 🇺🇸 **IBM Corporation** - Information Technology (USA)
+- 🇺🇸 **Microsoft Corporation** - Information Technology (USA)
+- 🇺🇸 **Accenture** - Consulting & Technology (USA)
+- 🇺🇸 **Deloitte** - Consulting & Professional Services (USA)
+- 🇰🇷 **Samsung Electronics** - Electronics & Technology (South Korea)
+- 🇰🇷 **LG Corporation** - Electronics & Chemicals (South Korea)
+- 🇰🇷 **Hyundai Motor Company** - Automotive (South Korea)
+- 🇸🇪 **Telefonaktiebolaget LM Ericsson** - Telecommunications (Sweden)
+- 🇸🇪 **Volvo Group** - Automotive & Transportation (Sweden)
+- 🇸🇪 **IKEA of Sweden AB** - Retail & Furniture (Sweden)
+- 🇩🇰 **Novo Nordisk A/S** - Pharmaceuticals & Healthcare (Denmark)
+- 🇩🇰 **A.P. Moller - Maersk** - Shipping & Logistics (Denmark)
+- 🇩🇰 **LEGO Group** - Toys & Entertainment (Denmark)
+- 🇸🇬 **DBS Bank Ltd** - Banking & Finance (Singapore)
+- 🇸🇬 **Singapore Airlines Limited** - Aviation (Singapore)
+- 🇪🇸 **Banco Santander S.A.** - Banking & Finance (Spain)
+- 🇪🇸 **Telefónica S.A.** - Telecommunications (Spain)
+- 🇯🇵 **Toyota Motor Corporation** - Automotive (Japan)
+- 🇯🇵 **Honda Motor Co., Ltd.** - Automotive (Japan)
+- 🇯🇵 **Sony Group Corporation** - Electronics & Entertainment (Japan)
+- 🇦🇺 **Qantas Airways Limited** - Aviation (Australia)
+- 🇦🇺 **BHP Group** - Mining & Resources (Australia)
+- 🇦🇺 **Rio Tinto** - Mining & Resources (Australia)
+- 🇦🇺 **Telstra Corporation Limited** - Telecommunications (Australia)
+- 🇨🇦 **Royal Bank of Canada (RBC)** - Banking & Finance (Canada)
+- 🇨🇦 **Toronto-Dominion Bank (TD)** - Banking & Finance (Canada)
+- 🇨🇦 **Shopify Inc.** - E-Commerce & Technology (Canada)
+- 🇧🇷 **Petróleo Brasileiro S.A. (Petrobras)** - Oil & Gas (Brazil)
+- 🇧🇷 **Vale S.A.** - Mining & Resources (Brazil)
+- 🇧🇷 **Ambev** - Food & Beverage (Brazil)
+- 🇮🇳 **Infosys Limited** - Information Technology (India)
+- 🇮🇳 **Tata Consultancy Services (TCS)** - Information Technology (India)
+- 🇮🇳 **Wipro Limited** - Information Technology (India)
 
 ### 2. Data Created (✅ Completed)
 
@@ -303,17 +338,29 @@ The seed script has been updated to:
 
 After loading, the database will contain:
 
-| Category | Original | Set 1 | Set 2 | Set 3 | Set 4 | Set 5 (Intl) | **Total** |
-|----------|----------|-------|-------|-------|-------|--------------|-----------|
-| Companies | 10 | 10 | 10 | 10 | 10 | 15 | **65** |
-| Programs | 10 | 30 | 20 | 20 | 20 | 30 | **130** |
+| Category | Original | Set 1 | Set 2 | Set 3 | Set 4 | Set 5 (Intl) | Set 6 (Global) | **Total** |
+|----------|----------|-------|-------|-------|-------|--------------|----------------|-----------|
+| Companies | 10 | 10 | 10 | 10 | 10 | 15 | 33 | **98** |
+| Programs | 10 | 30 | 20 | 20 | 20 | 30 | 66 | **196** |
 
-### Geographic Distribution:
-- **Germany**: 50 companies, 100 programs
-- **Switzerland**: 8 companies, 22 programs
-- **France**: 2 companies, 4 programs
-- **Netherlands/UK**: 2 companies, 4 programs
-- **Austria**: 3 companies, 6 programs
+### Geographic Distribution (17 Countries):
+- 🇩🇪 **Germany**: 50 companies, 100 programs
+- 🇨🇭 **Switzerland**: 8 companies, 22 programs
+- 🇺🇸 **USA**: 4 companies, 8 programs
+- 🇰🇷 **South Korea**: 3 companies, 6 programs
+- 🇸🇪 **Sweden**: 3 companies, 6 programs
+- 🇩🇰 **Denmark**: 3 companies, 6 programs
+- 🇦🇺 **Australia**: 4 companies, 8 programs
+- 🇨🇦 **Canada**: 3 companies, 6 programs
+- 🇯🇵 **Japan**: 3 companies, 6 programs
+- 🇧🇷 **Brazil**: 3 companies, 6 programs
+- 🇮🇳 **India**: 3 companies, 6 programs
+- 🇦🇹 **Austria**: 3 companies, 6 programs
+- 🇫🇷 **France**: 2 companies, 4 programs
+- 🇸🇬 **Singapore**: 2 companies, 4 programs
+- 🇪🇸 **Spain**: 2 companies, 4 programs
+- 🇳🇱 **Netherlands**: 1 company, 2 programs
+- 🇬🇧 **UK**: 1 company, 2 programs
 
 ### Programs by Type:
 - **Duales Studium**: ~38 programs (38%)
@@ -393,14 +440,15 @@ npm run seed
 📥 Found 10 even more companies and 20 even more programs
 📥 Found 10 final companies and 20 final programs
 🌍 Found 15 international companies and 30 international programs
+🌐 Found 33 worldwide companies and 66 worldwide programs
 
-📊 Total: 65 companies and 130 programs
+📊 Total: 98 companies and 196 programs
 
 📦 Seeding companies...
-✓ Seeded 65 companies
+✓ Seeded 98 companies
 
 📚 Seeding programs...
-✓ Seeded 130 programs
+✓ Seeded 196 programs
 
 👥 Seeding contact persons...
 ✓ Seeded X contact persons
@@ -460,8 +508,10 @@ psql -h localhost -U dualconnect_user -d dualconnect -c "SELECT program_type, CO
 8. ✅ `/database/sample-data/final-programs.json` (NEW) - 20 German programs
 9. ✅ `/database/sample-data/international-companies.json` (NEW) - 15 international companies 🌍
 10. ✅ `/database/sample-data/international-programs.json` (NEW) - 30 international programs 🌍
-11. ✅ `/backend/scripts/seed.js` (MODIFIED) - Updated to load all data files including international
-12. ✅ `/DUAL_PROGRAMS_LOADED.md` (MODIFIED - this file)
+11. ✅ `/database/sample-data/worldwide-companies.json` (NEW) - 33 worldwide companies 🌐
+12. ✅ `/database/sample-data/worldwide-programs.json` (NEW) - 66 worldwide programs 🌐
+13. ✅ `/backend/scripts/seed.js` (MODIFIED) - Updated to load all data files including worldwide
+14. ✅ `/DUAL_PROGRAMS_LOADED.md` (MODIFIED - this file)
 
 ## Next Steps
 
