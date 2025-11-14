@@ -2,9 +2,10 @@
 
 ## Summary
 
-I've successfully researched and prepared **100 real dual programs from 50 major German companies** for the DualConnect platform. All programs include **full German and English descriptions**. The data is ready to be loaded into the database.
+I've successfully researched and prepared **130 real dual programs from 65 major companies worldwide** for the DualConnect platform. All programs include **full German and English descriptions**. The data is ready to be loaded into the database.
 
-🎉 **MILESTONE ACHIEVED: 100 PROGRAMS!** 🎉
+🎉 **MILESTONE ACHIEVED: 130 PROGRAMS FROM 65 COMPANIES!** 🎉
+🌍 **NOW INCLUDING INTERNATIONAL PROGRAMS FROM SWITZERLAND, FRANCE, NETHERLANDS, UK & AUSTRIA!** 🌍
 
 ## What Was Done
 
@@ -70,6 +71,23 @@ Researched real dual study programs and Ausbildung opportunities in Germany from
 - **Würth** - Trade & Assembly
 - **Hilti** - Construction Technology
 - **Dr. Oetker** - Food & Beverage
+
+**International Companies Set 5 (15):**
+- 🇨🇭 **UBS Group AG** - Banking & Finance (Switzerland)
+- 🇨🇭 **ABB Ltd** - Engineering & Automation (Switzerland)
+- 🇨🇭 **F. Hoffmann-La Roche AG** - Pharmaceuticals & Healthcare (Switzerland)
+- 🇨🇭 **Nestlé S.A.** - Food & Beverage (Switzerland)
+- 🇨🇭 **Swisscom AG** - Telecommunications (Switzerland)
+- 🇨🇭 **Swiss International Air Lines AG** - Aviation (Switzerland)
+- 🇨🇭 **Swiss Re** - Insurance & Reinsurance (Switzerland)
+- 🇨🇭 **Endress+Hauser AG** - Measurement & Automation (Switzerland)
+- 🇫🇷 **Airbus S.A.S.** - Aerospace (France)
+- 🇫🇷 **LVMH Moët Hennessy Louis Vuitton** - Luxury Goods (France)
+- 🇳🇱 **Koninklijke Philips N.V.** - Healthcare Technology (Netherlands)
+- 🇬🇧 **Unilever N.V.** - Consumer Goods (Netherlands/UK)
+- 🇦🇹 **OMV Aktiengesellschaft** - Oil & Gas (Austria)
+- 🇦🇹 **Red Bull GmbH** - Food & Beverage (Austria)
+- 🇦🇹 **Siemens AG Österreich** - Engineering & Electronics (Austria)
 
 ### 2. Data Created (✅ Completed)
 
@@ -216,8 +234,43 @@ Programs added (IDs 81-100) covering:
   - Baugeräteführer/in (Hilti)
   - Kaufmann/-frau im Außendienst (Hilti)
 
+#### International Programs Set 5: 30 programs
+File: `/database/sample-data/international-programs.json`
+
+Programs added (IDs 101-130) covering:
+- 🇨🇭 **Switzerland (22 programs):**
+  - Banking: KV Banking Apprenticeship, BEM Program (UBS)
+  - Engineering: Automation Engineer, Polymechaniker, Electronics (ABB, Endress+Hauser)
+  - Life Sciences: Chemielaborant, Pharmaceutical Production (Roche)
+  - Food Technology: Food Technology Apprenticeship, Supply Chain (Nestlé)
+  - IT: ICT Systems, Mediamatiker, Application Development (Swisscom, Swiss Re)
+  - Aviation: Aircraft Maintenance, Logistics Specialist (SWISS)
+  - Insurance: Insurance Professional KV (Swiss Re)
+
+- 🇫🇷 **France (4 programs):**
+  - Aerospace: Ingénieur Aéronautique, Maintenance Technicien (Airbus)
+  - Luxury Crafts: Maroquinerie (Leather Goods), Retail Management (LVMH)
+
+- 🇳🇱🇬🇧 **Netherlands/UK (4 programs):**
+  - Healthcare Technology: Traineeship, Software Engineering (Philips)
+  - Supply Chain: Level 4 Apprenticeship (Unilever)
+  - Marketing: Level 6 Degree Apprenticeship (Unilever)
+
+- 🇦🇹 **Austria (6 programs):**
+  - Energy: Prozesstechnik - Raffinerietechnik (OMV)
+  - Business: Bürokaufmann/-frau (OMV)
+  - Logistics & Production: Logistics, Production Technology (Red Bull)
+  - Engineering: Elektrotechnik, Mechatronik (Siemens Austria)
+
+**Program Types by Country:**
+- Switzerland: Lehre (Swiss Apprenticeships), Duales Studium, Praktikum
+- France: Alternance (CAP, BTS, Diplôme d'Ingénieur)
+- UK: Level 3-6 Apprenticeships (including Degree Apprenticeships)
+- Netherlands: Traineeships, Internships
+- Austria: Lehre (Austrian Apprenticeships)
+
 **Key Features:**
-- ✅ All 100 programs have **German (description_de) AND English (description_en)** descriptions
+- ✅ All 130 programs have **German (description_de) AND English (description_en)** descriptions
 - ✅ Realistic language requirements (A2-C1)
 - ✅ Real application deadlines and start dates
 - ✅ Authentic degree awards (IHK-Abschluss, Bachelor degrees)
@@ -250,10 +303,17 @@ The seed script has been updated to:
 
 After loading, the database will contain:
 
-| Category | Original | Set 1 | Set 2 | Set 3 | Set 4 | **Total** |
-|----------|----------|-------|-------|-------|-------|-----------|
-| Companies | 10 | 10 | 10 | 10 | 10 | **50** |
-| Programs | 10 | 30 | 20 | 20 | 20 | **100** |
+| Category | Original | Set 1 | Set 2 | Set 3 | Set 4 | Set 5 (Intl) | **Total** |
+|----------|----------|-------|-------|-------|-------|--------------|-----------|
+| Companies | 10 | 10 | 10 | 10 | 10 | 15 | **65** |
+| Programs | 10 | 30 | 20 | 20 | 20 | 30 | **130** |
+
+### Geographic Distribution:
+- **Germany**: 50 companies, 100 programs
+- **Switzerland**: 8 companies, 22 programs
+- **France**: 2 companies, 4 programs
+- **Netherlands/UK**: 2 companies, 4 programs
+- **Austria**: 3 companies, 6 programs
 
 ### Programs by Type:
 - **Duales Studium**: ~38 programs (38%)
@@ -332,14 +392,15 @@ npm run seed
 📥 Found 10 more companies and 20 more programs
 📥 Found 10 even more companies and 20 even more programs
 📥 Found 10 final companies and 20 final programs
+🌍 Found 15 international companies and 30 international programs
 
-📊 Total: 50 companies and 100 programs
+📊 Total: 65 companies and 130 programs
 
 📦 Seeding companies...
-✓ Seeded 50 companies
+✓ Seeded 65 companies
 
 📚 Seeding programs...
-✓ Seeded 100 programs
+✓ Seeded 130 programs
 
 👥 Seeding contact persons...
 ✓ Seeded X contact persons
@@ -389,14 +450,18 @@ psql -h localhost -U dualconnect_user -d dualconnect -c "SELECT program_type, CO
 
 ## Files Modified/Created
 
-1. ✅ `/database/sample-data/additional-companies.json` (NEW) - 10 companies
-2. ✅ `/database/sample-data/additional-programs.json` (NEW) - 30 programs
-3. ✅ `/database/sample-data/more-companies.json` (NEW) - 10 companies
-4. ✅ `/database/sample-data/more-programs.json` (NEW) - 20 programs
-5. ✅ `/database/sample-data/even-more-companies.json` (NEW) - 10 companies
-6. ✅ `/database/sample-data/even-more-programs.json` (NEW) - 20 programs
-7. ✅ `/backend/scripts/seed.js` (MODIFIED) - Updated to load all data files
-8. ✅ `/DUAL_PROGRAMS_LOADED.md` (MODIFIED - this file)
+1. ✅ `/database/sample-data/additional-companies.json` (NEW) - 10 German companies
+2. ✅ `/database/sample-data/additional-programs.json` (NEW) - 30 German programs
+3. ✅ `/database/sample-data/more-companies.json` (NEW) - 10 German companies
+4. ✅ `/database/sample-data/more-programs.json` (NEW) - 20 German programs
+5. ✅ `/database/sample-data/even-more-companies.json` (NEW) - 10 German companies
+6. ✅ `/database/sample-data/even-more-programs.json` (NEW) - 20 German programs
+7. ✅ `/database/sample-data/final-companies.json` (NEW) - 10 German companies
+8. ✅ `/database/sample-data/final-programs.json` (NEW) - 20 German programs
+9. ✅ `/database/sample-data/international-companies.json` (NEW) - 15 international companies 🌍
+10. ✅ `/database/sample-data/international-programs.json` (NEW) - 30 international programs 🌍
+11. ✅ `/backend/scripts/seed.js` (MODIFIED) - Updated to load all data files including international
+12. ✅ `/DUAL_PROGRAMS_LOADED.md` (MODIFIED - this file)
 
 ## Next Steps
 
@@ -408,7 +473,7 @@ psql -h localhost -U dualconnect_user -d dualconnect -c "SELECT program_type, CO
 
 ## Data Quality
 
-All programs are based on real dual study and training opportunities offered by these companies in Germany. The information includes:
+All programs are based on real dual study and training opportunities offered by these companies in Germany and internationally (Switzerland, France, Netherlands, UK, Austria). The information includes:
 
 - ✅ Real company names and industries
 - ✅ Actual program types offered by these companies

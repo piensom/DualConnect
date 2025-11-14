@@ -79,9 +79,25 @@ async function seed() {
       console.log('ℹ️  No final data files found');
     }
 
+    // Read international data files
+    let internationalCompaniesData = [];
+    let internationalProgramsData = [];
+
+    try {
+      internationalCompaniesData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/international-companies.json'), 'utf8')
+      );
+      internationalProgramsData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/international-programs.json'), 'utf8')
+      );
+      console.log(`🌍 Found ${internationalCompaniesData.length} international companies and ${internationalProgramsData.length} international programs`);
+    } catch (err) {
+      console.log('ℹ️  No international data files found');
+    }
+
     // Merge all data
-    const allCompanies = [...companiesData, ...additionalCompaniesData, ...moreCompaniesData, ...evenMoreCompaniesData, ...finalCompaniesData];
-    const allPrograms = [...programsData, ...additionalProgramsData, ...moreProgramsData, ...evenMoreProgramsData, ...finalProgramsData];
+    const allCompanies = [...companiesData, ...additionalCompaniesData, ...moreCompaniesData, ...evenMoreCompaniesData, ...finalCompaniesData, ...internationalCompaniesData];
+    const allPrograms = [...programsData, ...additionalProgramsData, ...moreProgramsData, ...evenMoreProgramsData, ...finalProgramsData, ...internationalProgramsData];
 
     console.log(`\n📊 Total: ${allCompanies.length} companies and ${allPrograms.length} programs\n`);
 
