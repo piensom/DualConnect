@@ -100,6 +100,11 @@ function filterPrograms(filters) {
             if (program.field_of_study !== filters.field) return false;
         }
 
+        // Filter by country
+        if (filters.country && filters.country !== 'all') {
+            if (!company || company.country !== filters.country) return false;
+        }
+
         // Filter by location
         if (filters.location && filters.location !== 'all') {
             if (!company || company.city !== filters.location) return false;

@@ -76,7 +76,15 @@
                     </div>
 
                     <div class="filter-group">
-                        <label class="filter-label">Stadt / Location</label>
+                        <label class="filter-label">Land / Country</label>
+                        <select id="filterCountry" class="filter-select">
+                            <option value="all">Alle Länder / All Countries</option>
+                            <!-- Countries will be populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Stadt / City</label>
                         <select id="filterLocation" class="filter-select">
                             <option value="all">Alle Städte / All Cities</option>
                             <!-- Cities will be populated dynamically -->
@@ -220,18 +228,47 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="../scripts/main.js?v=5"></script>
+    <script src="../scripts/main.js?v=6"></script>
     <script>
         let allPrograms = [];
         let filteredPrograms = [];
 
-        // Populate city filter dynamically grouped by country
-        function populateCityFilter() {
+        // Populate country filter
+        function populateCountryFilter() {
             const companies = window.DualConnect.companies;
+            const countries = [...new Set(companies.map(c => c.country).filter(country => country))];
+
+            // Sort countries (Germany first, then alphabetically)
+            countries.sort((a, b) => {
+                if (a === 'Germany') return -1;
+                if (b === 'Germany') return 1;
+                return a.localeCompare(b);
+            });
+
+            const filterCountry = document.getElementById('filterCountry');
+            filterCountry.innerHTML = '<option value="all">Alle Länder / All Countries</option>';
+
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                filterCountry.appendChild(option);
+            });
+        }
+
+        // Populate city filter (context-sensitive based on selected country)
+        function populateCityFilter(selectedCountry = 'all') {
+            const companies = window.DualConnect.companies;
+
+            // Filter companies by selected country
+            let filteredCompanies = companies;
+            if (selectedCountry && selectedCountry !== 'all') {
+                filteredCompanies = companies.filter(c => c.country === selectedCountry);
+            }
 
             // Group cities by country
             const citiesByCountry = {};
-            companies.forEach(company => {
+            filteredCompanies.forEach(company => {
                 if (company.city && company.country) {
                     if (!citiesByCountry[company.country]) {
                         citiesByCountry[company.country] = new Set();
@@ -252,21 +289,35 @@
                 return a.localeCompare(b);
             });
 
-            // Add cities grouped by country
-            sortedCountries.forEach(country => {
-                const optgroup = document.createElement('optgroup');
-                optgroup.label = country;
-
-                const cities = Array.from(citiesByCountry[country]).sort();
-                cities.forEach(city => {
-                    const option = document.createElement('option');
-                    option.value = city;
-                    option.textContent = city;
-                    optgroup.appendChild(option);
+            // Add cities grouped by country (or flat list if only one country)
+            if (sortedCountries.length === 1 || selectedCountry !== 'all') {
+                // Flat list when filtering by country
+                sortedCountries.forEach(country => {
+                    const cities = Array.from(citiesByCountry[country]).sort();
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        filterLocation.appendChild(option);
+                    });
                 });
+            } else {
+                // Grouped by country when showing all
+                sortedCountries.forEach(country => {
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = country;
 
-                filterLocation.appendChild(optgroup);
-            });
+                    const cities = Array.from(citiesByCountry[country]).sort();
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        optgroup.appendChild(option);
+                    });
+
+                    filterLocation.appendChild(optgroup);
+                });
+            }
         }
 
         // Initialize page
@@ -275,6 +326,9 @@
 
             if (loaded) {
                 allPrograms = window.DualConnect.programs;
+
+                // Populate country filter
+                populateCountryFilter();
 
                 // Populate city filter with all cities from database
                 populateCityFilter();
@@ -341,10 +395,25 @@
             }
         }
 
+        // Handle country filter change
+        function onCountryChange() {
+            const selectedCountry = document.getElementById('filterCountry').value;
+
+            // Reset city filter
+            document.getElementById('filterLocation').value = 'all';
+
+            // Repopulate cities based on selected country
+            populateCityFilter(selectedCountry);
+
+            // Apply filters
+            applyFilters();
+        }
+
         // Apply filters
         function applyFilters() {
             const filters = {
                 field: document.getElementById('filterField').value,
+                country: document.getElementById('filterCountry').value,
                 location: document.getElementById('filterLocation').value,
                 language: document.getElementById('filterLanguage').value,
                 type: document.getElementById('filterType').value,
@@ -358,10 +427,14 @@
         // Clear filters
         function clearFilters() {
             document.getElementById('filterField').value = 'all';
+            document.getElementById('filterCountry').value = 'all';
             document.getElementById('filterLocation').value = 'all';
             document.getElementById('filterLanguage').value = 'all';
             document.getElementById('filterType').value = 'all';
             document.getElementById('filterInternational').checked = false;
+
+            // Repopulate cities to show all
+            populateCityFilter();
 
             displayPrograms(allPrograms);
         }
@@ -389,6 +462,7 @@
         }
 
         // Event listeners
+        document.getElementById('filterCountry').addEventListener('change', onCountryChange);
         document.getElementById('applyFilters').addEventListener('click', applyFilters);
         document.getElementById('clearFilters').addEventListener('click', clearFilters);
         document.getElementById('searchInput').addEventListener('input', performSearch);
