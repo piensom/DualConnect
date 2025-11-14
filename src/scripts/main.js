@@ -72,12 +72,12 @@ function createProgramCard(program) {
                 <span class="program-type-badge">${programType}</span>
             </div>
             <div class="program-company">
-                ${company ? company.company_name : 'Company'} · ${company ? company.address_city + ', ' + company.address_state : 'Location'}
+                ${company ? company.company_name : 'Company'} · ${company ? company.city + ', ' + company.state : 'Location'}
             </div>
             <div class="program-meta">
                 <span class="meta-item">⏱ ${program.duration_months} months</span>
                 <span class="meta-item">🗣 ${program.language_requirement}</span>
-                <span class="meta-item">📍 ${company ? company.address_city : 'City'}</span>
+                <span class="meta-item">📍 ${company ? company.city : 'City'}</span>
             </div>
             <p class="program-description">${program.description_en || program.description_de}</p>
             <div class="program-actions">
@@ -100,7 +100,7 @@ function filterPrograms(filters) {
 
         // Filter by location
         if (filters.location && filters.location !== 'all') {
-            if (!company || company.address_city !== filters.location) return false;
+            if (!company || company.city !== filters.location) return false;
         }
 
         // Filter by language
