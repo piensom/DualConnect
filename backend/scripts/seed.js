@@ -26,6 +26,8 @@ async function seed() {
     let additionalProgramsData = [];
     let moreCompaniesData = [];
     let moreProgramsData = [];
+    let evenMoreCompaniesData = [];
+    let evenMoreProgramsData = [];
 
     try {
       additionalCompaniesData = JSON.parse(
@@ -51,9 +53,21 @@ async function seed() {
       console.log('ℹ️  No more data files found');
     }
 
+    try {
+      evenMoreCompaniesData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/even-more-companies.json'), 'utf8')
+      );
+      evenMoreProgramsData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/even-more-programs.json'), 'utf8')
+      );
+      console.log(`📥 Found ${evenMoreCompaniesData.length} even more companies and ${evenMoreProgramsData.length} even more programs`);
+    } catch (err) {
+      console.log('ℹ️  No even more data files found');
+    }
+
     // Merge all data
-    const allCompanies = [...companiesData, ...additionalCompaniesData, ...moreCompaniesData];
-    const allPrograms = [...programsData, ...additionalProgramsData, ...moreProgramsData];
+    const allCompanies = [...companiesData, ...additionalCompaniesData, ...moreCompaniesData, ...evenMoreCompaniesData];
+    const allPrograms = [...programsData, ...additionalProgramsData, ...moreProgramsData, ...evenMoreProgramsData];
 
     console.log(`\n📊 Total: ${allCompanies.length} companies and ${allPrograms.length} programs\n`);
 
