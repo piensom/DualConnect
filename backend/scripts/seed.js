@@ -21,26 +21,53 @@ async function seed() {
       fs.readFileSync(path.join(__dirname, '../../database/sample-data/funding_options.json'), 'utf8')
     );
 
+    // Read additional data files
+    let additionalCompaniesData = [];
+    let additionalProgramsData = [];
+    try {
+      additionalCompaniesData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/additional-companies.json'), 'utf8')
+      );
+      additionalProgramsData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../../database/sample-data/additional-programs.json'), 'utf8')
+      );
+      console.log(`📥 Found ${additionalCompaniesData.length} additional companies and ${additionalProgramsData.length} additional programs\n`);
+    } catch (err) {
+      console.log('ℹ️  No additional data files found, using base data only\n');
+    }
+
+    // Merge data
+    const allCompanies = [...companiesData, ...additionalCompaniesData];
+    const allPrograms = [...programsData, ...additionalProgramsData];
+
     // Seed companies
     console.log('📦 Seeding companies...');
-    for (const company of companiesData) {
+    for (const company of allCompanies) {
       await pool.query(
         `INSERT INTO companies (company_id, company_name, industry, city, state, postal_code,
          street_address, website_url, company_size, description, logo_url, latitude, longitude)
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
          ON CONFLICT (company_id) DO NOTHING`,
         [
-          company.company_id, company.company_name, company.industry, company.city,
-          company.state, company.postal_code, company.street_address, company.website_url,
-          company.company_size, company.description || null, null, null, null
+          company.company_id,
+          company.company_name,
+          company.industry,
+          company.city || company.address_city,
+          company.state || company.address_state,
+          company.postal_code || company.address_postal,
+          company.street_address || company.address_street,
+          company.website_url || company.website,
+          company.company_size || company.size_employees,
+          company.description || company.description_en || null,
+          null, null, null
         ]
       );
     }
-    console.log(`✓ Seeded ${companiesData.length} companies\n`);
+    console.log(`✓ Seeded ${allCompanies.length} companies\n`);
 
     // Seed programs
     console.log('📚 Seeding programs...');
-    for (const program of programsData) {
+    for (const program of allPrograms) {
       await pool.query(
         `INSERT INTO programs (program_id, program_name, program_type, field_of_study,
          duration_months, language_requirement, salary_range, company_id, description,
@@ -51,13 +78,13 @@ async function seed() {
           program.program_id, program.program_name, program.program_type,
           program.field_of_study, program.duration_months, program.language_requirement,
           program.salary_range || '800-1200 EUR/month', program.company_id,
-          `Join ${program.program_name} and start your career in ${program.field_of_study}!`,
-          `German language level ${program.language_requirement}, High school diploma or equivalent`,
-          'Health insurance, Paid vacation, Professional development opportunities',
+          program.description || program.description_en || `Join ${program.program_name} and start your career in ${program.field_of_study}!`,
+          program.requirements || `German language level ${program.language_requirement}, High school diploma or equivalent`,
+          program.benefits || 'Health insurance, Paid vacation, Professional development opportunities',
         ]
       );
     }
-    console.log(`✓ Seeded ${programsData.length} programs\n`);
+    console.log(`✓ Seeded ${allPrograms.length} programs\n`);
 
     // Seed contact persons
     console.log('👥 Seeding contact persons...');
